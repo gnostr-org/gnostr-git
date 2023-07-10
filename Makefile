@@ -868,7 +868,7 @@ TEST_PROGRAMS = $(patsubst %,t/helper/%$X,$(TEST_PROGRAMS_NEED_X))
 
 # List built-in command $C whose implementation cmd_$C() is not in
 # builtin/$C.o but is linked in as part of some other command.
-BUILT_INS += $(patsubst builtin/%.o,git-%$X,$(BUILTIN_OBJS))
+BUILT_INS += $(patsubst builtin/%.o,gnostr-git-%$X,$(BUILTIN_OBJS))
 
 BUILT_INS += git-cherry$X
 BUILT_INS += git-cherry-pick$X
@@ -886,7 +886,7 @@ BUILT_INS += git-version$X
 BUILT_INS += git-whatchanged$X
 
 # what 'all' will build but not install in gitexecdir
-OTHER_PROGRAMS += git$X
+OTHER_PROGRAMS += gnostr-git$X
 OTHER_PROGRAMS += scalar$X
 
 # what test wrappers are needed and 'install' will install, in bindir
@@ -1930,7 +1930,7 @@ ifdef APPLE_COMMON_CRYPTO_SHA1
 	BASIC_CFLAGS += -DSHA1_APPLE
 else
 	BASIC_CFLAGS += -DSHA1_DC
-	LIB_OBJS += sha1dc_git.o
+	LIB_OBJS += sha1dc_gnostr-git.o
 ifdef DC_SHA1_EXTERNAL
 	ifdef DC_SHA1_SUBMODULE
 		ifneq ($(DC_SHA1_SUBMODULE),auto)
@@ -2389,13 +2389,13 @@ strip: $(PROGRAMS) git$X
 #   dependencies here will not need to change if the force-build
 #   details change some day.
 
-git.sp git.s git.o: GIT-PREFIX
-git.sp git.s git.o: EXTRA_CPPFLAGS = \
+gnostr-git.sp gnostr-git.s gnostr-git.o: GIT-PREFIX
+gnostr-git.sp gnostr-git.s gnostr-git.o: EXTRA_CPPFLAGS = \
 	'-DGIT_HTML_PATH="$(htmldir_relative_SQ)"' \
 	'-DGIT_MAN_PATH="$(mandir_relative_SQ)"' \
 	'-DGIT_INFO_PATH="$(infodir_relative_SQ)"'
 
-git$X: git.o GIT-LDFLAGS $(BUILTIN_OBJS) $(GITLIBS)
+gnostr-git$X: gnostr-git.o GIT-LDFLAGS $(BUILTIN_OBJS) $(GITLIBS)
 	$(QUIET_LINK)$(CC) $(ALL_CFLAGS) -o $@ $(ALL_LDFLAGS) \
 		$(filter %.o,$^) $(LIBS)
 
@@ -2422,7 +2422,7 @@ version.sp version.s version.o: EXTRA_CPPFLAGS = \
 		GIT_CEILING_DIRECTORIES="$(CURDIR)/.." \
 		git rev-parse -q --verify HEAD 2>/dev/null)"'
 
-$(BUILT_INS): git$X
+$(BUILT_INS): gnostr-git$X
 	$(QUIET_BUILT_IN)$(RM) $@ && \
 	ln $< $@ 2>/dev/null || \
 	ln -s $< $@ 2>/dev/null || \
@@ -2476,7 +2476,7 @@ $(SCRIPT_LIB) : % : %.sh GIT-SCRIPT-DEFINES
 	$(QUIET_GEN)$(cmd_munge_script) && \
 	mv $@+ $@
 
-git.res: git.rc GIT-VERSION-FILE GIT-PREFIX
+gnostr-git.res: gnostr-git.rc GIT-VERSION-FILE GIT-PREFIX
 	$(QUIET_RC)$(RC) \
 	  $(join -DMAJOR= -DMINOR= -DMICRO= -DPATCHLEVEL=, $(wordlist 1, 4, \
 	    $(shell echo $(GIT_VERSION) 0 0 0 0 | tr '.a-zA-Z-' ' '))) \
@@ -2657,9 +2657,9 @@ test-objs: $(TEST_OBJS)
 GIT_OBJS += $(LIB_OBJS)
 GIT_OBJS += $(BUILTIN_OBJS)
 GIT_OBJS += common-main.o
-GIT_OBJS += git.o
-.PHONY: git-objs
-git-objs: $(GIT_OBJS)
+GIT_OBJS += gnostr-git.o
+.PHONY: gnostr-git-objs
+gnostr-git-objs: $(GIT_OBJS)
 
 SCALAR_OBJS += scalar.o
 .PHONY: scalar-objs
@@ -2778,17 +2778,17 @@ compat/nedmalloc/nedmalloc.sp compat/nedmalloc/nedmalloc.o: EXTRA_CPPFLAGS = \
 compat/nedmalloc/nedmalloc.sp: SP_EXTRA_FLAGS += -Wno-non-pointer-null
 endif
 
-git-%$X: %.o GIT-LDFLAGS $(GITLIBS)
+gnostr-git-%$X: %.o GIT-LDFLAGS $(GITLIBS)
 	$(QUIET_LINK)$(CC) $(ALL_CFLAGS) -o $@ $(ALL_LDFLAGS) $(filter %.o,$^) $(LIBS)
 
-git-imap-send$X: imap-send.o $(IMAP_SEND_BUILDDEPS) GIT-LDFLAGS $(GITLIBS)
+gnostr-git-imap-send$X: imap-send.o $(IMAP_SEND_BUILDDEPS) GIT-LDFLAGS $(GITLIBS)
 	$(QUIET_LINK)$(CC) $(ALL_CFLAGS) -o $@ $(ALL_LDFLAGS) $(filter %.o,$^) \
 		$(IMAP_SEND_LDFLAGS) $(LIBS)
 
-git-http-fetch$X: http.o http-walker.o http-fetch.o GIT-LDFLAGS $(GITLIBS)
+gnostr-git-http-fetch$X: http.o http-walker.o http-fetch.o GIT-LDFLAGS $(GITLIBS)
 	$(QUIET_LINK)$(CC) $(ALL_CFLAGS) -o $@ $(ALL_LDFLAGS) $(filter %.o,$^) \
 		$(CURL_LIBCURL) $(LIBS)
-git-http-push$X: http.o http-push.o GIT-LDFLAGS $(GITLIBS)
+gnostr-git-http-push$X: http.o http-push.o GIT-LDFLAGS $(GITLIBS)
 	$(QUIET_LINK)$(CC) $(ALL_CFLAGS) -o $@ $(ALL_LDFLAGS) $(filter %.o,$^) \
 		$(CURL_LIBCURL) $(EXPAT_LIBEXPAT) $(LIBS)
 
@@ -2924,15 +2924,15 @@ sed -e 's|charset=CHARSET|charset=UTF-8|' \
 echo '"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\\n"' >>$@
 endef
 
-.build/pot/git.header: $(LOCALIZED_ALL_GEN_PO)
+.build/pot/gnostr-git.header: $(LOCALIZED_ALL_GEN_PO)
 	$(call mkdir_p_parent_template)
 	$(QUIET_GEN)$(gen_pot_header)
 
-po/git.pot: .build/pot/git.header $(LOCALIZED_ALL_GEN_PO)
+po/gnostr-git.pot: .build/pot/gnostr-git.header $(LOCALIZED_ALL_GEN_PO)
 	$(QUIET_GEN)$(MSGCAT) $^ >$@
 
 .PHONY: pot
-pot: po/git.pot
+pot: po/gnostr-git.pot
 
 define check_po_file_envvar
 	$(if $(PO_FILE), \
@@ -2942,14 +2942,14 @@ define check_po_file_envvar
 endef
 
 .PHONY: po-update
-po-update: po/git.pot
+po-update: po/gnostr-git.pot
 	$(check_po_file_envvar)
 	@if test ! -e $(PO_FILE); then \
 		echo >&2 "error: $(PO_FILE) does not exist"; \
 		echo >&2 'To create an initial po file, use: "make po-init PO_FILE=po/XX.po"'; \
 		exit 1; \
 	fi
-	$(QUIET_MSGMERGE)$(MSGMERGE) $(MSGMERGE_FLAGS) $(PO_FILE) po/git.pot
+	$(QUIET_MSGMERGE)$(MSGMERGE) $(MSGMERGE_FLAGS) $(PO_FILE) po/gnostr-git.pot
 
 .PHONY: check-pot
 check-pot: $(LOCALIZED_ALL_GEN_PO)
@@ -2996,12 +2996,12 @@ POFILES :=
 MOFILES :=
 else
 POFILES := $(wildcard po/*.po)
-MOFILES := $(patsubst po/%.po,po/build/locale/%/LC_MESSAGES/git.mo,$(POFILES))
+MOFILES := $(patsubst po/%.po,po/build/locale/%/LC_MESSAGES/gnostr-git.mo,$(POFILES))
 
 all:: $(MOFILES)
 endif
 
-po/build/locale/%/LC_MESSAGES/git.mo: po/%.po
+po/build/locale/%/LC_MESSAGES/gnostr-git.mo: po/%.po
 	$(call mkdir_p_parent_template)
 	$(QUIET_MSGFMT)$(MSGFMT) -o $@ $<
 
@@ -3226,7 +3226,7 @@ HCO = $(patsubst %.h,%.hco,$(CHK_HDRS))
 HCC = $(HCO:hco=hcc)
 
 %.hcc: %.h
-	@echo '#include "git-compat-util.h"' >$@
+	@echo '#include "gnostr-git-compat-util.h"' >$@
 	@echo '#include "$<"' >>$@
 
 $(HCO): %.hco: %.hcc FORCE
@@ -3648,8 +3648,8 @@ cocciclean:
 
 clean: profile-clean coverage-clean cocciclean
 	$(RM) -r .build
-	$(RM) po/git.pot po/git-core.pot
-	$(RM) git.res
+	$(RM) po/gnostr-git.pot po/git-core.pot
+	$(RM) gnostr-git.res
 	$(RM) $(OBJECTS)
 	$(RM) $(LIB_FILE) $(XDIFF_LIB) $(REFTABLE_LIB) $(REFTABLE_TEST_LIB)
 	$(RM) $(ALL_PROGRAMS) $(SCRIPT_LIB) $(BUILT_INS) $(OTHER_PROGRAMS)
@@ -3828,6 +3828,6 @@ FUZZ_CXXFLAGS ?= $(CFLAGS)
 
 $(FUZZ_PROGRAMS): all
 	$(QUIET_LINK)$(CXX) $(FUZZ_CXXFLAGS) $(LIB_OBJS) $(BUILTIN_OBJS) \
-		$(XDIFF_OBJS) $(EXTLIBS) git.o $@.o $(LIB_FUZZING_ENGINE) -o $@
+		$(XDIFF_OBJS) $(EXTLIBS) gnostr-git.o $@.o $(LIB_FUZZING_ENGINE) -o $@
 
 fuzz-all: $(FUZZ_PROGRAMS)
