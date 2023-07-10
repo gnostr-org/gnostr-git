@@ -197,7 +197,7 @@ it off, but it's a good idea to mention the problem to the mailing list.
 Great, now your new command builds happily on its own. But nobody invokes it.
 Let's change that.
 
-The list of commands lives in `git.c`. We can register a new command by adding
+The list of commands lives in `gnostr-git.c`. We can register a new command by adding
 a `cmd_struct` to the `commands[]` array. `struct cmd_struct` takes a string
 with the command name, a function pointer to the command implementation, and a
 setup option flag. For now, let's keep mimicking `push`. Find the line where
@@ -218,7 +218,7 @@ $ ./bin-wrappers/git psuh
 
 Check it out! You've got a command! Nice work! Let's commit this.
 
-`git status` reveals modified `Makefile`, `builtin.h`, and `git.c` as well as
+`git status` reveals modified `Makefile`, `builtin.h`, and `gnostr-git.c` as well as
 untracked `builtin/psuh.c` and `git-psuh`. First, let's take care of the binary,
 which should be ignored. Open `.gitignore` in your editor, find `/git-pull`, and
 add an entry for your new command in alphabetical order:
@@ -239,7 +239,7 @@ the untracked list and `.gitignore` has been added to the modified list. Now we
 can stage and commit:
 
 ----
-$ git add Makefile builtin.h builtin/psuh.c git.c .gitignore
+$ git add Makefile builtin.h builtin/psuh.c gnostr-git.c .gitignore
 $ git commit -s
 ----
 
@@ -1090,7 +1090,7 @@ The one generated for `psuh` from the sample implementation looks like this:
  Makefile                   |  1 +
  builtin.h                  |  1 +
  builtin/psuh.c             | 73 ++++++++++++++++++++++++++++++++++++++
- git.c                      |  1 +
+ gnostr-git.c               |  1 +
  t/t9999-psuh-tutorial.sh   | 12 +++++++
  6 files changed, 128 insertions(+)
  create mode 100644 Documentation/git-psuh.txt

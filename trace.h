@@ -12,7 +12,7 @@
  * all trace messages. E.g.:
  *
  * ------------
- * 23:59:59.123456 git.c:312               trace: built-in: git 'foo'
+ * 23:59:59.123456 gnostr-git.c:312        trace: built-in: git 'foo'
  * 00:00:00.000001 builtin/foo.c:99        foo: some message
  * ------------
  *

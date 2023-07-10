@@ -8645,12 +8645,12 @@ msgstr "沒有 man 檢視器處理此請求"
 msgid "no info viewer handled the request"
 msgstr "沒有 info 檢視器處理此請求"
 
-#: builtin/help.c git.c
+#: builtin/help.c gnostr-git.c
 #, c-format
 msgid "'%s' is aliased to '%s'"
 msgstr "'%s' 是 '%s' 的別名"
 
-#: builtin/help.c git.c
+#: builtin/help.c gnostr-git.c
 #, c-format
 msgid "bad alias.%s string: %s"
 msgstr "壞的 alias.%s 字串：%s"
@@ -19944,7 +19944,7 @@ msgid ""
 "sockets support"
 msgstr "通訊端 “%s” 因缺少 Unix 通訊端支援，而與 fsmonitor 不相容"
 
-#: git.c
+#: gnostr-git.c
 msgid ""
 "git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n"
 "           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n"
@@ -19960,7 +19960,7 @@ msgstr ""
 "           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n"
 "           [--config-env=<name>=<envvar>] <command> [<args>]"
 
-#: git.c
+#: gnostr-git.c
 msgid ""
 "'git help -a' and 'git help -g' list available subcommands and some\n"
 "concept guides. See 'git help <command>' or 'git help <concept>'\n"
@@ -19972,47 +19972,47 @@ msgstr ""
 "說明。\n"
 "有關系統概述，檢視 'git help git'。"
 
-#: git.c help.c
+#: gnostr-git.c help.c
 #, c-format
 msgid "unsupported command listing type '%s'"
 msgstr "不支援的命令列表類型 '%s'"
 
-#: git.c
+#: gnostr-git.c
 #, c-format
 msgid "no directory given for '%s' option\n"
 msgstr "未傳入目錄至「%s」選項\n"
 
-#: git.c
+#: gnostr-git.c
 #, c-format
 msgid "no namespace given for --namespace\n"
 msgstr "沒有為 --namespace 提供命名空間\n"
 
-#: git.c
+#: gnostr-git.c
 #, c-format
 msgid "-c expects a configuration string\n"
 msgstr "應為 -c 提供一個設定字串\n"
 
-#: git.c
+#: gnostr-git.c
 #, c-format
 msgid "no config key given for --config-env\n"
 msgstr "未傳入設定鍵至 --config-env\n"
 
-#: git.c
+#: gnostr-git.c
 #, c-format
 msgid "no attribute source given for --attr-source\n"
 msgstr "沒有為 --attr-source 提供屬性來源\n"
 
-#: git.c
+#: gnostr-git.c
 #, c-format
 msgid "unknown option: %s\n"
 msgstr "未知選項：%s\n"
 
-#: git.c
+#: gnostr-git.c
 #, c-format
 msgid "while expanding alias '%s': '%s'"
 msgstr "在展開別名 '%s' 時：'%s'"
 
-#: git.c
+#: gnostr-git.c
 #, c-format
 msgid ""
 "alias '%s' changes environment variables.\n"
@@ -20021,39 +20021,39 @@ msgstr ""
 "別名 '%s' 修改環境變數。您可以使用在別名中\n"
 "使用 '!git'"
 
-#: git.c
+#: gnostr-git.c
 #, c-format
 msgid "empty alias for %s"
 msgstr "%s 的空別名"
 
-#: git.c
+#: gnostr-git.c
 #, c-format
 msgid "recursive alias: %s"
 msgstr "遞迴的別名：%s"
 
-#: git.c
+#: gnostr-git.c
 msgid "write failure on standard output"
 msgstr "在標準輸出寫入失敗"
 
-#: git.c
+#: gnostr-git.c
 msgid "unknown write failure on standard output"
 msgstr "到標準輸出的未知寫入錯誤"
 
-#: git.c
+#: gnostr-git.c
 msgid "close failed on standard output"
 msgstr "標準輸出關閉失敗"
 
-#: git.c
+#: gnostr-git.c
 #, c-format
 msgid "alias loop detected: expansion of '%s' does not terminate:%s"
 msgstr "偵測到別名循環：展開後的「%s」無窮無盡：%s"
 
-#: git.c
+#: gnostr-git.c
 #, c-format
 msgid "cannot handle %s as a builtin"
 msgstr "不能作為內建指令處理 %s"
 
-#: git.c
+#: gnostr-git.c
 #, c-format
 msgid ""
 "usage: %s\n"
@@ -20062,12 +20062,12 @@ msgstr ""
 "用法：%s\n"
 "\n"
 
-#: git.c
+#: gnostr-git.c
 #, c-format
 msgid "expansion of alias '%s' failed; '%s' is not a git command\n"
 msgstr "展開別名指令 '%s' 失敗，'%s' 不是一個 git 指令\n"
 
-#: git.c
+#: gnostr-git.c
 #, c-format
 msgid "failed to run command '%s': %s\n"
 msgstr "執行指令 '%s' 失敗：%s\n"

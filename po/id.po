@@ -8787,12 +8787,12 @@ msgstr "tidak ada pembaca man yang menangani permintaan"
 msgid "no info viewer handled the request"
 msgstr "tidak ada pembaca info yang menangani permintaan"
 
-#: builtin/help.c git.c
+#: builtin/help.c gnostr-git.c
 #, c-format
 msgid "'%s' is aliased to '%s'"
 msgstr "'%s' dialiaskan ke '%s'"
 
-#: builtin/help.c git.c
+#: builtin/help.c gnostr-git.c
 #, c-format
 msgid "bad alias.%s string: %s"
 msgstr "untai alias.%s jelek: %s"
@@ -20358,7 +20358,7 @@ msgstr ""
 "direktori soket '%s' tidak kompatibel dengan fsmonitor karena kekurangan "
 "dukungan soket Unix"
 
-#: git.c
+#: gnostr-git.c
 msgid ""
 "git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n"
 "           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n"
@@ -20375,7 +20375,7 @@ msgstr ""
 "           [--config-env=<nama>=<variabel lingkungan>]\n"
 "           <perintah> [<argumen>]"
 
-#: git.c
+#: gnostr-git.c
 msgid ""
 "'git help -a' and 'git help -g' list available subcommands and some\n"
 "concept guides. See 'git help <command>' or 'git help <concept>'\n"
@@ -20387,47 +20387,47 @@ msgstr ""
 "untuk baca tentang perintah atau konsep spesifik.\n"
 "Lihat 'git help git' untuk gambaran tentang sistem."
 
-#: git.c help.c
+#: gnostr-git.c help.c
 #, c-format
 msgid "unsupported command listing type '%s'"
 msgstr "tipe daftar perintah '%s' tidak didukung"
 
-#: git.c
+#: gnostr-git.c
 #, c-format
 msgid "no directory given for '%s' option\n"
 msgstr "tidak ada direktori yang diberikan untuk opsi '%s'\n"
 
-#: git.c
+#: gnostr-git.c
 #, c-format
 msgid "no namespace given for --namespace\n"
 msgstr "tidak ada ruang nama yang diberikan untuk --namespace\n"
 
-#: git.c
+#: gnostr-git.c
 #, c-format
 msgid "-c expects a configuration string\n"
 msgstr "-c mengharapkan sebuah untai konfigurasi\n"
 
-#: git.c
+#: gnostr-git.c
 #, c-format
 msgid "no config key given for --config-env\n"
 msgstr "tidak ada kunci konfigurasi yang diberikan untuk --config-env\n"
 
-#: git.c
+#: gnostr-git.c
 #, c-format
 msgid "no attribute source given for --attr-source\n"
 msgstr "tidak ada atribut yang diberikan untuk --attr-source\n"
 
-#: git.c
+#: gnostr-git.c
 #, c-format
 msgid "unknown option: %s\n"
 msgstr "opsi tidak dikenal: %s\n"
 
-#: git.c
+#: gnostr-git.c
 #, c-format
 msgid "while expanding alias '%s': '%s'"
 msgstr "ketika memperluas alias '%s': '%s'"
 
-#: git.c
+#: gnostr-git.c
 #, c-format
 msgid ""
 "alias '%s' changes environment variables.\n"
@@ -20436,39 +20436,39 @@ msgstr ""
 "alias '%s' merubah variabel lingkungan.\n"
 "Anda dapat menggunakan '!git' dalam alias untuk melakukannya."
 
-#: git.c
+#: gnostr-git.c
 #, c-format
 msgid "empty alias for %s"
 msgstr "alias kosong untuk %s"
 
-#: git.c
+#: gnostr-git.c
 #, c-format
 msgid "recursive alias: %s"
 msgstr "alias rekursif: %s"
 
-#: git.c
+#: gnostr-git.c
 msgid "write failure on standard output"
 msgstr "kegagalan menulis pada keluaran standar"
 
-#: git.c
+#: gnostr-git.c
 msgid "unknown write failure on standard output"
 msgstr "kegagal menulis tidak diketahui pada keluaran standar"
 
-#: git.c
+#: gnostr-git.c
 msgid "close failed on standard output"
 msgstr "penutupan gagal pada keluaran standar"
 
-#: git.c
+#: gnostr-git.c
 #, c-format
 msgid "alias loop detected: expansion of '%s' does not terminate:%s"
 msgstr "putaran alias terdeteksi: perluasan '%s' tidak berhenti:%s"
 
-#: git.c
+#: gnostr-git.c
 #, c-format
 msgid "cannot handle %s as a builtin"
 msgstr "tidak dapat menangani %s sebagai bawaan"
 
-#: git.c
+#: gnostr-git.c
 #, c-format
 msgid ""
 "usage: %s\n"
@@ -20477,12 +20477,12 @@ msgstr ""
 "penggunaan: %s\n"
 "\n"
 
-#: git.c
+#: gnostr-git.c
 #, c-format
 msgid "expansion of alias '%s' failed; '%s' is not a git command\n"
 msgstr "perluasan alias '%s' gagal; '%s' bukan sebuah perintah git\n"
 
-#: git.c
+#: gnostr-git.c
 #, c-format
 msgid "failed to run command '%s': %s\n"
 msgstr "gagal menjalankan perintah '%s': %s\n"

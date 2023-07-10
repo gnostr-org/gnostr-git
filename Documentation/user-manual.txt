@@ -171,13 +171,13 @@ index 65898fa..b002dc6 100644
 --- a/init-db.c
 +++ b/init-db.c
 @@ -7,7 +7,7 @@
- 
+
  int main(int argc, char **argv)
  {
 -	char *sha1_dir = getenv(DB_ENVIRONMENT), *path;
 +	char *sha1_dir, *path;
  	int len, i;
- 
+
  	if (mkdir(".git", 0755) < 0) {
 ------------------------------------------------
 
@@ -4178,7 +4178,7 @@ command `git`.  The source side of a builtin is
   (note that older versions of Git used to have it in `builtin-<bla>.c`
   instead), and declared in `builtin.h`.
 
-- an entry in the `commands[]` array in `git.c`, and
+- an entry in the `commands[]` array in `gnostr-git.c`, and
 
 - an entry in `BUILTIN_OBJECTS` in the `Makefile`.
 

@@ -3745,7 +3745,7 @@ check-docs::
 		esac; \
 	done ) | sort
 
-### Make sure built-ins do not have dups and listed in git.c
+### Make sure built-ins do not have dups and listed in gnostr-git.c
 #
 check-builtins::
 	./check-builtins.sh

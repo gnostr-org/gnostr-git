@@ -4539,7 +4539,7 @@ msgstr "polecenia gita dostępne gdzie indziej w ścieżce $PATH"
 msgid "These are common Git commands used in various situations:"
 msgstr "Oto częste polecenia Gita używane w różnych sytuacjach:"
 
-#: help.c:378 git.c:100
+#: help.c:378 gnostr-git.c:100
 #, c-format
 msgid "unsupported command listing type '%s'"
 msgstr "nieobsługiwany rodzaj spisu poleceń „%s”"
@@ -16682,12 +16682,12 @@ msgstr "żaden czytnik podręcznika nie obsłużył żądania"
 msgid "no info viewer handled the request"
 msgstr "żaden czytnik podręcznika info nie obsłużył żądania"
 
-#: builtin/help.c:551 builtin/help.c:562 git.c:348
+#: builtin/help.c:551 builtin/help.c:562 gnostr-git.c:348
 #, c-format
 msgid "'%s' is aliased to '%s'"
 msgstr "„%s” jest skrótem na „%s”"
 
-#: builtin/help.c:565 git.c:380
+#: builtin/help.c:565 gnostr-git.c:380
 #, c-format
 msgid "bad alias.%s string: %s"
 msgstr "zły łańcuch alias.%s: %s"
@@ -23508,7 +23508,7 @@ msgstr ""
 msgid "'%s' is not a valid submodule name"
 msgstr "„%s” nie jest prawidłową nazwą podmodułu"
 
-#: builtin/submodule--helper.c:3404 git.c:449 git.c:723
+#: builtin/submodule--helper.c:3404 gnostr-git.c:449 gnostr-git.c:723
 #, c-format
 msgid "%s doesn't support --super-prefix"
 msgstr "%s nie wspiera --super-prefix"
@@ -24404,7 +24404,7 @@ msgstr "zapisz obiekt drzewa katalogu <prefiks>"
 msgid "only useful for debugging"
 msgstr "przydatne tylko do odpluskwiania"
 
-#: git.c:28
+#: gnostr-git.c:28
 msgid ""
 "git [--version] [--help] [-C <path>] [-c <name>=<value>]\n"
 "           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n"
@@ -24424,7 +24424,7 @@ msgstr ""
 "           [--super-prefix=<ścieżka>] [--config-env=<nazwa>=<zmśrod>]\n"
 "           <polecenie> [<argumenty>]"
 
-#: git.c:36
+#: gnostr-git.c:36
 msgid ""
 "'git help -a' and 'git help -g' list available subcommands and some\n"
 "concept guides. See 'git help <command>' or 'git help <concept>'\n"
@@ -24438,52 +24438,52 @@ msgstr ""
 "aby poczytać o konkretnym poleceniu lub pojęciu.\n"
 "W „git help git” znajdziesz przegląd systemu."
 
-#: git.c:188
+#: gnostr-git.c:188
 #, c-format
 msgid "no directory given for --git-dir\n"
 msgstr "nie podano katalogu do --git-dir\n"
 
-#: git.c:202
+#: gnostr-git.c:202
 #, c-format
 msgid "no namespace given for --namespace\n"
 msgstr "nie podano przestrzeni nazw do --namespace\n"
 
-#: git.c:216
+#: gnostr-git.c:216
 #, c-format
 msgid "no directory given for --work-tree\n"
 msgstr "nie podano katalogu do --work-tree\n"
 
-#: git.c:230
+#: gnostr-git.c:230
 #, c-format
 msgid "no prefix given for --super-prefix\n"
 msgstr "nie podano prefiksu do --super-prefix\n"
 
-#: git.c:252
+#: gnostr-git.c:252
 #, c-format
 msgid "-c expects a configuration string\n"
 msgstr "-c oczekuje łańcucha konfiguracji\n"
 
-#: git.c:260
+#: gnostr-git.c:260
 #, c-format
 msgid "no config key given for --config-env\n"
 msgstr "nie podano klucza ustawień do --config-env\n"
 
-#: git.c:300
+#: gnostr-git.c:300
 #, c-format
 msgid "no directory given for -C\n"
 msgstr "nie podano katalogu do -C\n"
 
-#: git.c:326
+#: gnostr-git.c:326
 #, c-format
 msgid "unknown option: %s\n"
 msgstr "nieznana opcja: %s\n"
 
-#: git.c:375
+#: gnostr-git.c:375
 #, c-format
 msgid "while expanding alias '%s': '%s'"
 msgstr "podczas rozszerzania skrótu „%s”: „%s”"
 
-#: git.c:384
+#: gnostr-git.c:384
 #, c-format
 msgid ""
 "alias '%s' changes environment variables.\n"
@@ -24492,39 +24492,39 @@ msgstr ""
 "skrót „%s” zmienia zmienne środowiska.\n"
 "Aby to zrobić, możesz użyć w skrócie „!git”"
 
-#: git.c:391
+#: gnostr-git.c:391
 #, c-format
 msgid "empty alias for %s"
 msgstr "pusty skrót dla %s"
 
-#: git.c:394
+#: gnostr-git.c:394
 #, c-format
 msgid "recursive alias: %s"
 msgstr "rekurencyjny skrót: %s"
 
-#: git.c:476
+#: gnostr-git.c:476
 msgid "write failure on standard output"
 msgstr "błąd wypisywania na standardowe wyjście"
 
-#: git.c:478
+#: gnostr-git.c:478
 msgid "unknown write failure on standard output"
 msgstr "nieznany błąd wypisywania na standardowe wyjście"
 
-#: git.c:480
+#: gnostr-git.c:480
 msgid "close failed on standard output"
 msgstr "nie można zamknąć standardowego wyjścia"
 
-#: git.c:832
+#: gnostr-git.c:832
 #, c-format
 msgid "alias loop detected: expansion of '%s' does not terminate:%s"
 msgstr "wykryto pętlę skrótów: rozwijanie „%s” nie kończy się: %s"
 
-#: git.c:882
+#: gnostr-git.c:882
 #, c-format
 msgid "cannot handle %s as a builtin"
 msgstr "nie można obsłużyć %s jako polecenia wbudowanego"
 
-#: git.c:895
+#: gnostr-git.c:895
 #, c-format
 msgid ""
 "usage: %s\n"
@@ -24533,13 +24533,13 @@ msgstr ""
 "użycie: %s\n"
 "\n"
 
-#: git.c:915
+#: gnostr-git.c:915
 #, c-format
 msgid "expansion of alias '%s' failed; '%s' is not a git command\n"
 msgstr ""
 "rozwinięcie skrótu „%s” nie powiodło się; „%s” nie jest poleceniem gita\n"
 
-#: git.c:927
+#: gnostr-git.c:927
 #, c-format
 msgid "failed to run command '%s': %s\n"
 msgstr "nie można wykonać polecenia „%s”: %s\n"

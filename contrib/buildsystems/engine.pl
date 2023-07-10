@@ -18,7 +18,7 @@ my (%build_structure, %compile_options, @makedry);
 my $out_dir = getcwd();
 my $git_dir = $out_dir;
 $git_dir =~ s=\\=/=g;
-$git_dir = dirname($git_dir) while (!-e "$git_dir/git.c" && "$git_dir" ne "");
+$git_dir = dirname($git_dir) while (!-e "$git_dir/gnostr-git.c" && "$git_dir" ne "");
 die "Couldn't find Git repo" if ("$git_dir" eq "");
 
 my @gens = Generators::available();

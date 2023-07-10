@@ -4758,7 +4758,7 @@ msgstr "comandos do git disponíveis noutras localizações em $PATH"
 msgid "These are common Git commands used in various situations:"
 msgstr "Estes são comandos do Git comuns usados em diversas situações:"
 
-#: help.c:382 git.c:100
+#: help.c:382 gnostr-git.c:100
 #, c-format
 msgid "unsupported command listing type '%s'"
 msgstr "insustentado para listagem tipo comandos '%s'"
@@ -16917,12 +16917,12 @@ msgstr "atendeu ao pedido visualizador de man nenhum"
 msgid "no info viewer handled the request"
 msgstr "atendeu ao pedido visualizador de info nenhum"
 
-#: builtin/help.c:555 builtin/help.c:566 git.c:348
+#: builtin/help.c:555 builtin/help.c:566 gnostr-git.c:348
 #, c-format
 msgid "'%s' is aliased to '%s'"
 msgstr "'git %s' é um alias de '%s'"
 
-#: builtin/help.c:569 git.c:380
+#: builtin/help.c:569 gnostr-git.c:380
 #, c-format
 msgid "bad alias.%s string: %s"
 msgstr ""
@@ -23676,7 +23676,7 @@ msgstr "URL de repo: '%s' tem de ser absoluto ou começar com ./|../"
 msgid "'%s' is not a valid submodule name"
 msgstr "'%s' é nome de submódulo inválido"
 
-#: builtin/submodule--helper.c:3520 git.c:453 git.c:729
+#: builtin/submodule--helper.c:3520 gnostr-git.c:453 gnostr-git.c:729
 #, c-format
 msgid "%s doesn't support --super-prefix"
 msgstr "%s insustenta --super-prefix"
@@ -24539,7 +24539,7 @@ msgstr "escrever objeto árvore para <prefixo> de subpasta"
 msgid "only useful for debugging"
 msgstr "apenas útil para depuração"
 
-#: git.c:28
+#: gnostr-git.c:28
 msgid ""
 "git [--version] [--help] [-C <path>] [-c <name>=<value>]\n"
 "           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n"
@@ -24550,7 +24550,7 @@ msgid ""
 "           <command> [<args>]"
 msgstr ""
 
-#: git.c:36
+#: gnostr-git.c:36
 msgid ""
 "'git help -a' and 'git help -g' list available subcommands and some\n"
 "concept guides. See 'git help <command>' or 'git help <concept>'\n"
@@ -24562,81 +24562,81 @@ msgstr ""
 "para ler sobre um subcomando específico ou conceito específico.\n"
 "Para uma visão geral do sistema, vê 'git help git'."
 
-#: git.c:188 git.c:216 git.c:300
+#: gnostr-git.c:188 gnostr-git.c:216 gnostr-git.c:300
 #, c-format
 msgid "no directory given for '%s' option\n"
 msgstr "dada pasta nenhuma para opção '%s'\n"
 
-#: git.c:202
+#: gnostr-git.c:202
 #, c-format
 msgid "no namespace given for --namespace\n"
 msgstr ""
 
-#: git.c:230
+#: gnostr-git.c:230
 #, c-format
 msgid "no prefix given for --super-prefix\n"
 msgstr "--super-prefix recebeu prefixo nenhum\n"
 
-#: git.c:252
+#: gnostr-git.c:252
 #, c-format
 msgid "-c expects a configuration string\n"
 msgstr ""
 
-#: git.c:260
+#: gnostr-git.c:260
 #, c-format
 msgid "no config key given for --config-env\n"
 msgstr ""
 
-#: git.c:326
+#: gnostr-git.c:326
 #, c-format
 msgid "unknown option: %s\n"
 msgstr "desconheço opção: %s\n"
 
-#: git.c:375
+#: gnostr-git.c:375
 #, c-format
 msgid "while expanding alias '%s': '%s'"
 msgstr ""
 
-#: git.c:384
+#: gnostr-git.c:384
 #, c-format
 msgid ""
 "alias '%s' changes environment variables.\n"
 "You can use '!git' in the alias to do this"
 msgstr ""
 
-#: git.c:391
+#: gnostr-git.c:391
 #, c-format
 msgid "empty alias for %s"
 msgstr ""
 
-#: git.c:394
+#: gnostr-git.c:394
 #, c-format
 msgid "recursive alias: %s"
 msgstr ""
 
-#: git.c:480
+#: gnostr-git.c:480
 msgid "write failure on standard output"
 msgstr ""
 
-#: git.c:482
+#: gnostr-git.c:482
 msgid "unknown write failure on standard output"
 msgstr ""
 
-#: git.c:484
+#: gnostr-git.c:484
 msgid "close failed on standard output"
 msgstr "fechar a saída padrão falhou"
 
-#: git.c:838
+#: gnostr-git.c:838
 #, c-format
 msgid "alias loop detected: expansion of '%s' does not terminate:%s"
 msgstr ""
 
-#: git.c:888
+#: gnostr-git.c:888
 #, c-format
 msgid "cannot handle %s as a builtin"
 msgstr "incapaz lidar %s como um builtin"
 
-#: git.c:901
+#: gnostr-git.c:901
 #, c-format
 msgid ""
 "usage: %s\n"
@@ -24645,12 +24645,12 @@ msgstr ""
 "uso: %s\n"
 "\n"
 
-#: git.c:921
+#: gnostr-git.c:921
 #, c-format
 msgid "expansion of alias '%s' failed; '%s' is not a git command\n"
 msgstr ""
 
-#: git.c:933
+#: gnostr-git.c:933
 #, c-format
 msgid "failed to run command '%s': %s\n"
 msgstr "incapaz de executar comando '%s': %s\n"

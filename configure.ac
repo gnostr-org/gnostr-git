@@ -144,7 +144,7 @@ fi
 AC_PREREQ(2.59)
 AC_INIT([git], [@@GIT_VERSION@@], [git@vger.kernel.org])
 
-AC_CONFIG_SRCDIR([git.c])
+AC_CONFIG_SRCDIR([gnostr-git.c])
 
 config_file=config.mak.autogen
 config_in=config.mak.in

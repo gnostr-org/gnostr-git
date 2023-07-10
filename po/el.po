@@ -2769,7 +2769,7 @@ msgid "These are common Git commands used in various situations:"
 msgstr ""
 "Αυτές είναι κοινές εντολές Git που χρησιμοποιούνται σε διάφορες περιπτώσεις:"
 
-#: help.c:363 git.c:90
+#: help.c:363 gnostr-git.c:90
 #, c-format
 msgid "unsupported command listing type '%s'"
 msgstr ""
@@ -12382,12 +12382,12 @@ msgstr ""
 msgid "no info viewer handled the request"
 msgstr ""
 
-#: builtin/help.c:430 builtin/help.c:441 git.c:323
+#: builtin/help.c:430 builtin/help.c:441 gnostr-git.c:323
 #, c-format
 msgid "'%s' is aliased to '%s'"
 msgstr ""
 
-#: builtin/help.c:444 git.c:347
+#: builtin/help.c:444 gnostr-git.c:347
 #, c-format
 msgid "bad alias.%s string: %s"
 msgstr ""
@@ -18053,7 +18053,7 @@ msgstr "git submodule--helper config --check-writeable"
 msgid "please make sure that the .gitmodules file is in the working tree"
 msgstr ""
 
-#: builtin/submodule--helper.c:2229 git.c:413 git.c:658
+#: builtin/submodule--helper.c:2229 gnostr-git.c:413 gnostr-git.c:658
 #, c-format
 msgid "%s doesn't support --super-prefix"
 msgstr ""
@@ -18925,7 +18925,7 @@ msgstr "η υποβολή %s δεν είναι σημειωμένη ως προ�
 msgid "too many commits marked reachable"
 msgstr ""
 
-#: git.c:27
+#: gnostr-git.c:27
 msgid ""
 "git [--version] [--help] [-C <path>] [-c <name>=<value>]\n"
 "           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n"
@@ -18943,93 +18943,93 @@ msgstr ""
 "namespace=<όνομα>]\n"
 "           <εντολή> [<ορίσματα>]"
 
-#: git.c:34
+#: gnostr-git.c:34
 msgid ""
 "'git help -a' and 'git help -g' list available subcommands and some\n"
 "concept guides. See 'git help <command>' or 'git help <concept>'\n"
 "to read about a specific subcommand or concept."
 msgstr ""
 
-#: git.c:174
+#: gnostr-git.c:174
 #, c-format
 msgid "no directory given for --git-dir\n"
 msgstr ""
 
-#: git.c:188
+#: gnostr-git.c:188
 #, c-format
 msgid "no namespace given for --namespace\n"
 msgstr ""
 
-#: git.c:202
+#: gnostr-git.c:202
 #, c-format
 msgid "no directory given for --work-tree\n"
 msgstr ""
 
-#: git.c:216
+#: gnostr-git.c:216
 #, c-format
 msgid "no prefix given for --super-prefix\n"
 msgstr ""
 
-#: git.c:238
+#: gnostr-git.c:238
 #, c-format
 msgid "-c expects a configuration string\n"
 msgstr ""
 
-#: git.c:276
+#: gnostr-git.c:276
 #, c-format
 msgid "no directory given for -C\n"
 msgstr ""
 
-#: git.c:301
+#: gnostr-git.c:301
 #, c-format
 msgid "unknown option: %s\n"
 msgstr ""
 
-#: git.c:342
+#: gnostr-git.c:342
 #, c-format
 msgid "while expanding alias '%s': '%s'"
 msgstr ""
 
-#: git.c:351
+#: gnostr-git.c:351
 #, c-format
 msgid ""
 "alias '%s' changes environment variables.\n"
 "You can use '!git' in the alias to do this"
 msgstr ""
 
-#: git.c:359
+#: gnostr-git.c:359
 #, c-format
 msgid "empty alias for %s"
 msgstr ""
 
-#: git.c:362
+#: gnostr-git.c:362
 #, c-format
 msgid "recursive alias: %s"
 msgstr ""
 
-#: git.c:437
+#: gnostr-git.c:437
 msgid "write failure on standard output"
 msgstr ""
 
-#: git.c:439
+#: gnostr-git.c:439
 msgid "unknown write failure on standard output"
 msgstr ""
 
-#: git.c:441
+#: gnostr-git.c:441
 msgid "close failed on standard output"
 msgstr ""
 
-#: git.c:720
+#: gnostr-git.c:720
 #, c-format
 msgid "alias loop detected: expansion of '%s' does not terminate:%s"
 msgstr ""
 
-#: git.c:770
+#: gnostr-git.c:770
 #, c-format
 msgid "cannot handle %s as a builtin"
 msgstr ""
 
-#: git.c:783
+#: gnostr-git.c:783
 #, c-format
 msgid ""
 "usage: %s\n"
@@ -19038,12 +19038,12 @@ msgstr ""
 "χρήση: %s\n"
 "\n"
 
-#: git.c:803
+#: gnostr-git.c:803
 #, c-format
 msgid "expansion of alias '%s' failed; '%s' is not a git command\n"
 msgstr ""
 
-#: git.c:815
+#: gnostr-git.c:815
 #, c-format
 msgid "failed to run command '%s': %s\n"
 msgstr ""

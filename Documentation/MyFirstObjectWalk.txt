@@ -87,7 +87,7 @@ Also add the relevant line in `builtin.h` near `cmd_whatchanged()`:
 int cmd_walken(int argc, const char **argv, const char *prefix);
 ----
 
-Include the command in `git.c` in `commands[]` near the entry for `whatchanged`,
+Include the command in `gnostr-git.c` in `commands[]` near the entry for `whatchanged`,
 maintaining alphabetical ordering:
 
 ----

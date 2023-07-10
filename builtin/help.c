@@ -560,7 +560,7 @@ static const char *check_git_cmd(const char* cmd)
 		int count;
 
 		/*
-		 * handle_builtin() in git.c rewrites "git cmd --help"
+		 * handle_builtin() in gnostr-git.c rewrites "git cmd --help"
 		 * to "git help --exclude-guides cmd", so we can use
 		 * exclude_guides to distinguish "git cmd --help" from
 		 * "git help cmd". In the latter case, or if cmd is an

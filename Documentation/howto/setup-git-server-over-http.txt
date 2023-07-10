@@ -141,7 +141,7 @@ Then, add something like this to your httpd.conf
   </Location>
 
   On Debian:
-    Create (or add to) /etc/apache2/conf.d/git.conf :
+    Create (or add to) /etc/apache2/conf.d/gnostr-git.conf :
 
     <Location /my-new-repo.git>
        DAV on
