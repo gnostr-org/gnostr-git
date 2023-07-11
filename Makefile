@@ -890,12 +890,12 @@ OTHER_PROGRAMS += gnostr-git$X
 OTHER_PROGRAMS += scalar$X
 
 # what test wrappers are needed and 'install' will install, in bindir
-BINDIR_PROGRAMS_NEED_X += git
+BINDIR_PROGRAMS_NEED_X += gnostr-git
 BINDIR_PROGRAMS_NEED_X += scalar
-BINDIR_PROGRAMS_NEED_X += git-receive-pack
-BINDIR_PROGRAMS_NEED_X += git-shell
-BINDIR_PROGRAMS_NEED_X += git-upload-archive
-BINDIR_PROGRAMS_NEED_X += git-upload-pack
+BINDIR_PROGRAMS_NEED_X += gnostr-git-receive-pack
+BINDIR_PROGRAMS_NEED_X += gnostr-git-shell
+BINDIR_PROGRAMS_NEED_X += gnostr-git-upload-archive
+BINDIR_PROGRAMS_NEED_X += gnostr-git-upload-pack
 
 BINDIR_PROGRAMS_NO_X += git-cvsserver
 
