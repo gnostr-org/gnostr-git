@@ -777,7 +777,7 @@ program-objs: $(PROGRAM_OBJS)
 # Binary suffix, set to .exe for Windows builds
 X =
 
-PROGRAMS += $(patsubst %.o,git-%$X,$(PROGRAM_OBJS))
+PROGRAMS += $(patsubst %.o,gnostr-git-%$X,$(PROGRAM_OBJS))
 
 TEST_BUILTINS_OBJS += test-advise.o
 TEST_BUILTINS_OBJS += test-bitmap.o
