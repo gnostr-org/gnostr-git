@@ -870,20 +870,20 @@ TEST_PROGRAMS = $(patsubst %,t/helper/%$X,$(TEST_PROGRAMS_NEED_X))
 # builtin/$C.o but is linked in as part of some other command.
 BUILT_INS += $(patsubst builtin/%.o,gnostr-git-%$X,$(BUILTIN_OBJS))
 
-BUILT_INS += git-cherry$X
-BUILT_INS += git-cherry-pick$X
-BUILT_INS += git-format-patch$X
-BUILT_INS += git-fsck-objects$X
-BUILT_INS += git-init$X
-BUILT_INS += git-maintenance$X
-BUILT_INS += git-merge-subtree$X
-BUILT_INS += git-restore$X
-BUILT_INS += git-show$X
-BUILT_INS += git-stage$X
-BUILT_INS += git-status$X
-BUILT_INS += git-switch$X
-BUILT_INS += git-version$X
-BUILT_INS += git-whatchanged$X
+BUILT_INS += gnostr-git-cherry$X
+BUILT_INS += gnostr-git-cherry-pick$X
+BUILT_INS += gnostr-git-format-patch$X
+BUILT_INS += gnostr-git-fsck-objects$X
+BUILT_INS += gnostr-git-init$X
+BUILT_INS += gnostr-git-maintenance$X
+BUILT_INS += gnostr-git-merge-subtree$X
+BUILT_INS += gnostr-git-restore$X
+BUILT_INS += gnostr-git-show$X
+BUILT_INS += gnostr-git-stage$X
+BUILT_INS += gnostr-git-status$X
+BUILT_INS += gnostr-git-switch$X
+BUILT_INS += gnostr-git-version$X
+BUILT_INS += gnostr-git-whatchanged$X
 
 # what 'all' will build but not install in gitexecdir
 OTHER_PROGRAMS += gnostr-git$X
