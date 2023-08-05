@@ -21,7 +21,7 @@ restart        restart the web server
 "
 
 SUBDIRECTORY_OK=Yes
-. git-sh-setup
+. gnostr-git-sh-setup
 
 fqgitdir="$GIT_DIR"
 local="$(git config --bool --get instaweb.local)"
