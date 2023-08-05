@@ -699,6 +699,8 @@ SCRIPT_SH += git-quiltimport.sh
 SCRIPT_SH += git-request-pull.sh
 SCRIPT_SH += git-submodule.sh
 SCRIPT_SH += git-web--browse.sh
+SCRIPT_SH += gnostr-git-sh-setup.sh
+#SCRIPT_SH += gnostr-git-instaweb.sh
 
 SCRIPT_LIB += git-mergetool--lib
 SCRIPT_LIB += git-sh-i18n
@@ -3436,6 +3438,7 @@ install: all
 	$(INSTALL) $(INSTALL_STRIP) $(install_bindir_xprograms) '$(DESTDIR_SQ)$(bindir_SQ)'
 	$(INSTALL) $(BINDIR_PROGRAMS_NO_X) '$(DESTDIR_SQ)$(bindir_SQ)'
 	$(INSTALL) gnostr-git-insta** /usr/local/bin
+	$(INSTALL) gnostr-git-sh-** /usr/local/bin
 
 ifdef MSVC
 	# We DO NOT install the individual foo.o.pdb files because they
