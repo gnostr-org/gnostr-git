@@ -1,10 +1,15 @@
-use crate::file::transaction::prepare_and_commit::{committer, create_at};
-use crate::file::EmptyCommit;
 use gix_lock::acquire::Fail;
-use gix_ref::file::transaction::PackedRefs;
-use gix_ref::store::WriteReflog;
-use gix_ref::transaction::{Change, LogChange, PreviousValue, RefEdit};
-use gix_ref::Target;
+use gix_ref::{
+    file::transaction::PackedRefs,
+    store::WriteReflog,
+    transaction::{Change, LogChange, PreviousValue, RefEdit},
+    Target,
+};
+
+use crate::file::{
+    transaction::prepare_and_commit::{committer, create_at},
+    EmptyCommit,
+};
 
 mod access;
 mod find;

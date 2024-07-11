@@ -1,5 +1,4 @@
-use std::borrow::Cow;
-use std::{fmt::Formatter, io::Write};
+use std::{borrow::Cow, fmt::Formatter, io::Write};
 
 use crate::{
     file,

@@ -1,3 +1,5 @@
+use std::error::Error;
+
 use gix_hash::ObjectId;
 use gix_lock::acquire::Fail;
 use gix_object::bstr::{BString, ByteSlice};
@@ -10,7 +12,6 @@ use gix_ref::{
     transaction::{Change, LogChange, PreviousValue, RefEdit, RefLog},
     Target,
 };
-use std::error::Error;
 
 use crate::{
     file::{

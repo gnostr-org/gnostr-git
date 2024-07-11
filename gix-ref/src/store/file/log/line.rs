@@ -169,8 +169,9 @@ pub mod decode {
 
     #[cfg(test)]
     mod test {
-        use super::*;
         use gix_date::{time::Sign, Time};
+
+        use super::*;
 
         /// Convert a hexadecimal hash into its corresponding `ObjectId` or _panic_.
         fn hex_to_oid(hex: &str) -> gix_hash::ObjectId {
