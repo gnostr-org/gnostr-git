@@ -1,9 +1,11 @@
-use crate::commit::topo::iter::gen_and_commit_time;
-use crate::commit::topo::{Error, Sorting, WalkFlags};
-use crate::commit::{find, Info, Parents, Topo};
 use gix_hash::{oid, ObjectId};
-use gix_revwalk::graph::IdMap;
-use gix_revwalk::PriorityQueue;
+use gix_revwalk::{graph::IdMap, PriorityQueue};
+
+use crate::commit::{
+    find,
+    topo::{iter::gen_and_commit_time, Error, Sorting, WalkFlags},
+    Info, Parents, Topo,
+};
 
 /// Builder for [`Topo`].
 pub struct Builder<Find, Predicate> {
