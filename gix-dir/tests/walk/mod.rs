@@ -1,21 +1,24 @@
-use gix_dir::{walk, EntryRef};
-use pretty_assertions::assert_eq;
 use std::sync::atomic::AtomicBool;
+
+use gix_dir::{
+    entry,
+    entry::{Kind::*, PathspecMatch::*, Property::*, Status::*},
+    walk,
+    walk::{
+        CollapsedEntriesEmissionMode::{All, OnStatusMismatch},
+        EmissionMode::*,
+        ForDeletionMode,
+    },
+    EntryRef,
+};
+use gix_ignore::Kind::*;
+use pretty_assertions::assert_eq;
 
 use crate::walk_utils::{
     collect, collect_filtered, collect_filtered_with_cwd, entry, entry_dirstat, entry_nokind, entry_nomatch, entryps,
     entryps_dirstat, fixture, fixture_in, options, options_emit_all, try_collect, try_collect_filtered_opts,
     try_collect_filtered_opts_collect, try_collect_filtered_opts_collect_with_root, EntryExt, Options,
 };
-use gix_dir::entry;
-use gix_dir::entry::Kind::*;
-use gix_dir::entry::PathspecMatch::*;
-use gix_dir::entry::Property::*;
-use gix_dir::entry::Status::*;
-use gix_dir::walk::CollapsedEntriesEmissionMode::{All, OnStatusMismatch};
-use gix_dir::walk::EmissionMode::*;
-use gix_dir::walk::ForDeletionMode;
-use gix_ignore::Kind::*;
 
 #[test]
 #[cfg_attr(windows, ignore = "symlinks the way they are organized don't yet work on windows")]

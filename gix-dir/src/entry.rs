@@ -1,6 +1,6 @@
-use crate::walk::ForDeletionMode;
-use crate::{Entry, EntryRef};
 use std::borrow::Cow;
+
+use crate::{walk::ForDeletionMode, Entry, EntryRef};
 
 /// A way of attaching additional information to an [Entry] .
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Ord, PartialOrd)]

@@ -1,10 +1,16 @@
-use crate::{entry, Entry, EntryRef};
-use std::borrow::Cow;
+use std::{
+    borrow::Cow,
+    path::{Path, PathBuf},
+};
 
-use crate::entry::PathspecMatch;
-use crate::walk::{Context, Error, ForDeletionMode, Options};
 use bstr::{BStr, BString, ByteSlice};
-use std::path::{Path, PathBuf};
+
+use crate::{
+    entry,
+    entry::PathspecMatch,
+    walk::{Context, Error, ForDeletionMode, Options},
+    Entry, EntryRef,
+};
 
 /// Classify the `worktree_relative_root` path and return the first `PathKind` that indicates that
 /// it isn't a directory, leaving `buf` with the path matching the returned `PathKind`,

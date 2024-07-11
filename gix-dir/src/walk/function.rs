@@ -1,10 +1,15 @@
-use std::borrow::Cow;
-use std::path::{Path, PathBuf};
+use std::{
+    borrow::Cow,
+    path::{Path, PathBuf},
+};
 
 use bstr::{BStr, BString, ByteSlice};
 
-use crate::walk::{classify, readdir, Action, Context, Delegate, Error, ForDeletionMode, Options, Outcome};
-use crate::{entry, EntryRef};
+use crate::{
+    entry,
+    walk::{classify, readdir, Action, Context, Delegate, Error, ForDeletionMode, Options, Outcome},
+    EntryRef,
+};
 
 /// A function to perform a git-style, unsorted, directory walk.
 ///
