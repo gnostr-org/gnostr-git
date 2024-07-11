@@ -286,6 +286,7 @@ members = [
     "gitoxide-core",
     "gix-hashtable",
     "gix-tui",
+    "gix-tui/asyncgit", "gix-tui/filetreelist", "gix-tui/git2-hooks", "gix-tui/git2-testing", "gix-tui/scopetime",
     "gix-tix",
     "gix-archive",
     "gix-worktree-stream",
