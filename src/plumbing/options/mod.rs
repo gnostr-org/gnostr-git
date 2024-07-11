@@ -201,8 +201,9 @@ pub mod archive {
 }
 
 pub mod status {
-    use crate::shared::{CheckPathSpec, ParseRenameFraction};
     use gix::bstr::BString;
+
+    use crate::shared::{CheckPathSpec, ParseRenameFraction};
 
     #[derive(Default, Debug, Copy, Clone, PartialEq, Eq, PartialOrd, Ord, clap::ValueEnum)]
     pub enum Submodules {
@@ -528,8 +529,9 @@ pub mod mailmap {
 
 #[cfg(feature = "gitoxide-core-tools-clean")]
 pub mod clean {
-    use crate::shared::CheckPathSpec;
     use gix::bstr::BString;
+
+    use crate::shared::CheckPathSpec;
 
     #[derive(Default, Debug, Copy, Clone, PartialEq, Eq, PartialOrd, Ord, clap::ValueEnum)]
     pub enum FindRepository {
@@ -798,8 +800,9 @@ pub mod revision {
 }
 
 pub mod attributes {
-    use crate::shared::CheckPathSpec;
     use gix::bstr::BString;
+
+    use crate::shared::CheckPathSpec;
 
     #[derive(Debug, clap::Subcommand)]
     pub enum Subcommands {
@@ -828,8 +831,9 @@ pub mod attributes {
 pub mod exclude {
     use std::ffi::OsString;
 
-    use crate::shared::CheckPathSpec;
     use gix::bstr::BString;
+
+    use crate::shared::CheckPathSpec;
 
     #[derive(Debug, clap::Subcommand)]
     pub enum Subcommands {
@@ -858,8 +862,9 @@ pub mod exclude {
 pub mod index {
     use std::path::PathBuf;
 
-    use crate::shared::CheckPathSpec;
     use gix::bstr::BString;
+
+    use crate::shared::CheckPathSpec;
 
     pub mod entries {
         #[derive(Default, Debug, Copy, Clone, PartialEq, Eq, PartialOrd, Ord, clap::ValueEnum)]
