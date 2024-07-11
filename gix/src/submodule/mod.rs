@@ -279,9 +279,10 @@ impl<'repo> Submodule<'repo> {
 #[allow(clippy::empty_docs)]
 #[cfg(feature = "status")]
 pub mod status {
+    use gix_submodule::config;
+
     use super::{head_id, index_id, open, Status};
     use crate::Submodule;
-    use gix_submodule::config;
 
     /// The error returned by [Submodule::status()].
     #[derive(Debug, thiserror::Error)]

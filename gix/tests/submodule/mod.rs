@@ -127,8 +127,7 @@ mod open {
 
     #[cfg(feature = "status")]
     mod status {
-        use crate::submodule::repo;
-        use crate::util::hex_to_id;
+        use crate::{submodule::repo, util::hex_to_id};
 
         #[test]
         fn changed_head_compared_to_superproject_index() -> crate::Result {

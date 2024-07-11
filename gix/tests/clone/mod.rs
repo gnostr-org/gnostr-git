@@ -2,8 +2,7 @@ use crate::{remote, util::restricted};
 
 #[cfg(all(feature = "worktree-mutation", feature = "blocking-network-client"))]
 mod blocking_io {
-    use std::path::Path;
-    use std::{borrow::Cow, sync::atomic::AtomicBool};
+    use std::{borrow::Cow, path::Path, sync::atomic::AtomicBool};
 
     use gix::{
         bstr::BString,

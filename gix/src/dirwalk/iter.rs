@@ -1,9 +1,10 @@
-use super::Iter;
-use crate::bstr::BString;
-use crate::util::OwnedOrStaticAtomicBool;
-use crate::worktree::IndexPersistedOrInMemory;
-use crate::{dirwalk, PathspecDetached, Repository};
 use std::path::PathBuf;
+
+use super::Iter;
+use crate::{
+    bstr::BString, dirwalk, util::OwnedOrStaticAtomicBool, worktree::IndexPersistedOrInMemory, PathspecDetached,
+    Repository,
+};
 
 /// An entry of the directory walk as returned by the [iterator](Iter).
 pub struct Item {

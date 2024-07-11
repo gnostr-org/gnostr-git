@@ -1,5 +1,6 @@
-use crate::util::named_subrepo_opts;
 use gix_worktree::stack::state::ignore::Source;
+
+use crate::util::named_subrepo_opts;
 
 #[test]
 fn empty_core_excludes() -> crate::Result {

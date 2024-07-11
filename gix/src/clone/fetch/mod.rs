@@ -1,6 +1,7 @@
-use crate::bstr::BString;
-use crate::bstr::ByteSlice;
-use crate::clone::PrepareFetch;
+use crate::{
+    bstr::{BString, ByteSlice},
+    clone::PrepareFetch,
+};
 
 /// The error returned by [`PrepareFetch::fetch_only()`].
 #[derive(Debug, thiserror::Error)]

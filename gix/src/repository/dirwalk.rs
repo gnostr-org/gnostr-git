@@ -1,8 +1,12 @@
-use crate::bstr::{BStr, BString};
-use crate::util::OwnedOrStaticAtomicBool;
-use crate::worktree::IndexPersistedOrInMemory;
-use crate::{config, dirwalk, is_dir_to_mode, Repository};
 use std::sync::atomic::AtomicBool;
+
+use crate::{
+    bstr::{BStr, BString},
+    config, dirwalk, is_dir_to_mode,
+    util::OwnedOrStaticAtomicBool,
+    worktree::IndexPersistedOrInMemory,
+    Repository,
+};
 
 impl Repository {
     /// Return default options suitable for performing a directory walk on this repository.

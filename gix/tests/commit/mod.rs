@@ -6,8 +6,9 @@ mod describe {
 
     #[cfg(feature = "status")]
     mod with_dirty_suffix {
-        use crate::util::named_subrepo_opts;
         use gix::commit::describe::SelectRef;
+
+        use crate::util::named_subrepo_opts;
 
         #[test]
         fn dirty_suffix_applies_automatically_if_dirty() -> crate::Result {

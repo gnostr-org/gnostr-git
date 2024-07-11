@@ -1,7 +1,11 @@
-use crate::bstr::{BStr, BString};
-use crate::{config, Repository};
-use gix_status::index_as_worktree::traits::{CompareBlobs, SubmoduleStatus};
 use std::sync::atomic::AtomicBool;
+
+use gix_status::index_as_worktree::traits::{CompareBlobs, SubmoduleStatus};
+
+use crate::{
+    bstr::{BStr, BString},
+    config, Repository,
+};
 
 /// The error returned by [Repository::index_worktree_status()].
 #[derive(Debug, thiserror::Error)]
@@ -184,11 +188,13 @@ pub struct BuiltinSubmoduleStatus {
 ///
 #[allow(clippy::empty_docs)]
 mod submodule_status {
-    use crate::bstr;
-    use crate::bstr::BStr;
-    use crate::status::index_worktree::BuiltinSubmoduleStatus;
-    use crate::status::Submodule;
     use std::borrow::Cow;
+
+    use crate::{
+        bstr,
+        bstr::BStr,
+        status::{index_worktree::BuiltinSubmoduleStatus, Submodule},
+    };
 
     impl BuiltinSubmoduleStatus {
         /// Create a new instance from a `repo` and a `mode` to control how the submodule status will be obtained.
@@ -308,14 +314,19 @@ pub struct Iter {
 ///
 #[allow(clippy::empty_docs)]
 pub mod iter {
-    use crate::bstr::{BStr, BString};
-    use crate::config::cache::util::ApplyLeniencyDefault;
-    use crate::status::index_worktree::{iter, BuiltinSubmoduleStatus};
-    use crate::status::{index_worktree, Platform};
-    use crate::worktree::IndexPersistedOrInMemory;
     use gix_status::index_as_worktree::{Change, EntryStatus};
-
     pub use gix_status::index_as_worktree_with_renames::Summary;
+
+    use crate::{
+        bstr::{BStr, BString},
+        config::cache::util::ApplyLeniencyDefault,
+        status::{
+            index_worktree,
+            index_worktree::{iter, BuiltinSubmoduleStatus},
+            Platform,
+        },
+        worktree::IndexPersistedOrInMemory,
+    };
 
     pub(super) enum ApplyChange {
         SetSizeToZero,

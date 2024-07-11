@@ -1,5 +1,7 @@
 use crate::{
-    config::cache::util::ApplyLeniencyDefault, config::tree::Index, worktree, worktree::IndexPersistedOrInMemory,
+    config::{cache::util::ApplyLeniencyDefault, tree::Index},
+    worktree,
+    worktree::IndexPersistedOrInMemory,
 };
 
 /// Index access

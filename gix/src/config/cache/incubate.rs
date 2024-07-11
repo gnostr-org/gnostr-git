@@ -1,8 +1,10 @@
 #![allow(clippy::result_large_err)]
 
 use super::{util, Error};
-use crate::config::cache::util::{ApplyLeniency, ApplyLeniencyDefaultValue};
-use crate::config::tree::{gitoxide, Core, Extensions};
+use crate::config::{
+    cache::util::{ApplyLeniency, ApplyLeniencyDefaultValue},
+    tree::{gitoxide, Core, Extensions},
+};
 
 /// A utility to deal with the cyclic dependency between the ref store and the configuration. The ref-store needs the
 /// object hash kind, and the configuration needs the current branch name to resolve conditional includes with `onbranch`.

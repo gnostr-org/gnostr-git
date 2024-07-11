@@ -1,13 +1,11 @@
 #![allow(clippy::result_large_err)]
-use std::borrow::Cow;
-use std::ffi::OsStr;
+use std::{borrow::Cow, ffi::OsStr};
 
 use gix_features::threading::OwnShared;
 use gix_macros::momo;
 
-use crate::bstr::ByteSlice;
 use crate::{
-    bstr::{BStr, BString},
+    bstr::{BStr, BString, ByteSlice},
     config::{CommitAutoRollback, Snapshot, SnapshotMut},
 };
 

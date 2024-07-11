@@ -1,5 +1,4 @@
-use std::borrow::Cow;
-use std::error::Error;
+use std::{borrow::Cow, error::Error};
 
 use crate::util::named_subrepo_opts;
 
