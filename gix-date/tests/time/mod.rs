@@ -33,8 +33,7 @@ fn is_set() {
 
 mod write_to {
     use bstr::ByteSlice;
-    use gix_date::time::Sign;
-    use gix_date::{SecondsSinceUnixEpoch, Time};
+    use gix_date::{time::Sign, SecondsSinceUnixEpoch, Time};
 
     #[test]
     fn invalid() {
