@@ -25,7 +25,7 @@ test = false
 doctest = false
 
 [features]
-default = ["max"]
+default = ["max-pure"]
 
 #! ### Build Configuration
 #! These combine common choices of building blocks to represent typical builds.
