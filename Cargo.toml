@@ -1,7 +1,8 @@
 [package]
 name = "gnostr-git"
 description = "A command-line application for interacting with git repositories"
-repository = "https://github.com/gnostr-org/gnostr-git"
+homepage = "https://github.com/gnostr-org/gnostr-git"
+repository = "https://github.com/gnostr-org/gnostr-git.git"
 authors = ["Sebastian Thiel <sebastian.thiel@icloud.com>", "gnostr <admin@gnostr.org>"]
 edition = "2021"
 license = "MIT OR Apache-2.0"
@@ -286,6 +287,7 @@ members = [
     "gitoxide-core",
     "gix-hashtable",
     "gix-tui",
+    "gix-tui/asyncgit", "gix-tui/filetreelist", "gix-tui/git2-hooks", "gix-tui/git2-testing", "gix-tui/scopetime",
     "gix-tix",
     "gix-archive",
     "gix-worktree-stream",
