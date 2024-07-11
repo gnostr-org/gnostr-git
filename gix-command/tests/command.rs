@@ -1,5 +1,6 @@
-use gix_testtools::Result;
 use std::path::Path;
+
+use gix_testtools::Result;
 
 #[test]
 fn extract_interpreter() -> gix_testtools::Result {
@@ -79,8 +80,9 @@ mod shebang {
 
             #[cfg(unix)]
             {
-                use bstr::ByteSlice;
                 use std::os::unix::ffi::OsStrExt;
+
+                use bstr::ByteSlice;
                 assert_eq!(
                     shebang::parse(b"#!/bin/sh   -x \xC3\x28\x41 -y  ".as_bstr()),
                     Some(shebang::Data {
