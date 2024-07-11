@@ -6,7 +6,7 @@ env:
 
 on:
   push:
-    branches: [ main ]
+    branches: [ m**]
     tags-ignore: [ '*' ]
     paths:
       - '.github/**'
