@@ -4,7 +4,7 @@ on:
   # Trigger the workflow on push to master or any pull request
   # Ignore all tags
   push:
-    branches: [ main ]
+    branches: [ m** ]
     tags-ignore: [ '*' ]
   pull_request:
     branches: [ main ]
