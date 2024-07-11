@@ -1,6 +1,5 @@
-use std::path::PathBuf;
 use std::{
-    path::Path,
+    path::{Path, PathBuf},
     process::{Command, Stdio},
 };
 

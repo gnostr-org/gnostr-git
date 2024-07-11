@@ -1,10 +1,11 @@
-use std::path::{Path, PathBuf};
-use std::time::Duration;
+use std::{
+    path::{Path, PathBuf},
+    time::Duration,
+};
 
 use bstr::ByteVec;
-use tempfile::tempdir;
-
 use gix_path::{realpath::Error, realpath_opts};
+use tempfile::tempdir;
 
 #[test]
 fn fuzzed_timeout() -> crate::Result {

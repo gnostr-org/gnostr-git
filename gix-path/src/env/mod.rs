@@ -3,8 +3,9 @@ use std::{
     path::{Path, PathBuf},
 };
 
-use crate::env::git::EXE_NAME;
 use bstr::{BString, ByteSlice};
+
+use crate::env::git::EXE_NAME;
 
 mod git;
 

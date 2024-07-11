@@ -1,8 +1,7 @@
-use std::path::Component;
 use std::{
     borrow::Cow,
     ffi::{OsStr, OsString},
-    path::{Path, PathBuf},
+    path::{Component, Path, PathBuf},
 };
 
 use bstr::{BStr, BString};
