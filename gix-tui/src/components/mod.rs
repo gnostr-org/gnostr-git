@@ -35,7 +35,9 @@ mod taglist;
 mod textinput;
 mod utils;
 
-pub use self::status_tree::StatusTreeComponent;
+use std::convert::From;
+
+use anyhow::Result;
 pub use blame_file::{BlameFileComponent, BlameFileOpen};
 pub use branchlist::BranchListComponent;
 pub use changes::ChangesComponent;
@@ -45,6 +47,7 @@ pub use commit_details::CommitDetailsComponent;
 pub use commitlist::CommitList;
 pub use compare_commits::CompareCommitsComponent;
 pub use create_branch::CreateBranchComponent;
+use crossterm::event::Event;
 pub use diff::DiffComponent;
 pub use externaleditor::ExternalEditorComponent;
 pub use fetch::FetchComponent;
@@ -58,6 +61,13 @@ pub use options_popup::{AppOption, OptionsPopupComponent};
 pub use pull::PullComponent;
 pub use push::PushComponent;
 pub use push_tags::PushTagsComponent;
+use ratatui::{
+    backend::Backend,
+    layout::{Alignment, Rect},
+    text::{Span, Text},
+    widgets::{Block, BorderType, Borders, Paragraph, Wrap},
+    Frame,
+};
 pub use rename_branch::RenameBranchComponent;
 pub use reset::ConfirmComponent;
 pub use reset_popup::ResetPopupComponent;
@@ -71,17 +81,8 @@ pub use taglist::TagListComponent;
 pub use textinput::{InputType, TextInputComponent};
 pub use utils::filetree::FileTreeItemKind;
 
+pub use self::status_tree::StatusTreeComponent;
 use crate::ui::style::Theme;
-use anyhow::Result;
-use crossterm::event::Event;
-use ratatui::{
-	backend::Backend,
-	layout::{Alignment, Rect},
-	text::{Span, Text},
-	widgets::{Block, BorderType, Borders, Paragraph, Wrap},
-	Frame,
-};
-use std::convert::From;
 
 /// creates accessors for a list of components
 ///
@@ -149,194 +150,164 @@ macro_rules! setup_popups {
 }
 
 /// returns `true` if event was consumed
-pub fn event_pump(
-	ev: &Event,
-	components: &mut [&mut dyn Component],
-) -> Result<EventState> {
-	for c in components {
-		if c.event(ev)?.is_consumed() {
-			return Ok(EventState::Consumed);
-		}
-	}
+pub fn event_pump(ev: &Event, components: &mut [&mut dyn Component]) -> Result<EventState> {
+    for c in components {
+        if c.event(ev)?.is_consumed() {
+            return Ok(EventState::Consumed);
+        }
+    }
 
-	Ok(EventState::NotConsumed)
+    Ok(EventState::NotConsumed)
 }
 
 /// helper fn to simplify delegating command
 /// gathering down into child components
 /// see `event_pump`,`accessors`
-pub fn command_pump(
-	out: &mut Vec<CommandInfo>,
-	force_all: bool,
-	components: &[&dyn Component],
-) {
-	for c in components {
-		if c.commands(out, force_all) != CommandBlocking::PassingOn
-			&& !force_all
-		{
-			break;
-		}
-	}
+pub fn command_pump(out: &mut Vec<CommandInfo>, force_all: bool, components: &[&dyn Component]) {
+    for c in components {
+        if c.commands(out, force_all) != CommandBlocking::PassingOn && !force_all {
+            break;
+        }
+    }
 }
 
 #[derive(Copy, Clone)]
 pub enum ScrollType {
-	Up,
-	Down,
-	Home,
-	End,
-	PageUp,
-	PageDown,
+    Up,
+    Down,
+    Home,
+    End,
+    PageUp,
+    PageDown,
 }
 
 #[derive(Copy, Clone)]
 pub enum HorizontalScrollType {
-	Left,
-	Right,
+    Left,
+    Right,
 }
 
 #[derive(Copy, Clone)]
 pub enum Direction {
-	Up,
-	Down,
+    Up,
+    Down,
 }
 
 ///
 #[derive(PartialEq, Eq)]
 pub enum CommandBlocking {
-	Blocking,
-	PassingOn,
+    Blocking,
+    PassingOn,
 }
 
 ///
-pub fn visibility_blocking<T: Component>(
-	comp: &T,
-) -> CommandBlocking {
-	if comp.is_visible() {
-		CommandBlocking::Blocking
-	} else {
-		CommandBlocking::PassingOn
-	}
+pub fn visibility_blocking<T: Component>(comp: &T) -> CommandBlocking {
+    if comp.is_visible() {
+        CommandBlocking::Blocking
+    } else {
+        CommandBlocking::PassingOn
+    }
 }
 
 ///
 pub trait DrawableComponent {
-	///
-	fn draw<B: Backend>(
-		&self,
-		f: &mut Frame<B>,
-		rect: Rect,
-	) -> Result<()>;
+    ///
+    fn draw<B: Backend>(&self, f: &mut Frame<B>, rect: Rect) -> Result<()>;
 }
 
 ///
 #[derive(PartialEq, Eq)]
 pub enum EventState {
-	Consumed,
-	NotConsumed,
+    Consumed,
+    NotConsumed,
 }
 
 #[derive(Copy, Clone)]
 pub enum FuzzyFinderTarget {
-	Branches,
-	Files,
+    Branches,
+    Files,
 }
 
 impl EventState {
-	pub fn is_consumed(&self) -> bool {
-		*self == Self::Consumed
-	}
+    pub fn is_consumed(&self) -> bool {
+        *self == Self::Consumed
+    }
 }
 
 impl From<bool> for EventState {
-	fn from(consumed: bool) -> Self {
-		if consumed {
-			Self::Consumed
-		} else {
-			Self::NotConsumed
-		}
-	}
+    fn from(consumed: bool) -> Self {
+        if consumed {
+            Self::Consumed
+        } else {
+            Self::NotConsumed
+        }
+    }
 }
 
 /// base component trait
 pub trait Component {
-	///
-	fn commands(
-		&self,
-		out: &mut Vec<CommandInfo>,
-		force_all: bool,
-	) -> CommandBlocking;
+    ///
+    fn commands(&self, out: &mut Vec<CommandInfo>, force_all: bool) -> CommandBlocking;
 
-	///
-	fn event(&mut self, ev: &Event) -> Result<EventState>;
+    ///
+    fn event(&mut self, ev: &Event) -> Result<EventState>;
 
-	///
-	fn focused(&self) -> bool {
-		false
-	}
-	/// focus/unfocus this component depending on param
-	fn focus(&mut self, _focus: bool) {}
-	///
-	fn is_visible(&self) -> bool {
-		true
-	}
-	///
-	fn hide(&mut self) {}
-	///
-	fn show(&mut self) -> Result<()> {
-		Ok(())
-	}
+    ///
+    fn focused(&self) -> bool {
+        false
+    }
+    /// focus/unfocus this component depending on param
+    fn focus(&mut self, _focus: bool) {}
+    ///
+    fn is_visible(&self) -> bool {
+        true
+    }
+    ///
+    fn hide(&mut self) {}
+    ///
+    fn show(&mut self) -> Result<()> {
+        Ok(())
+    }
 
-	///
-	fn toggle_visible(&mut self) -> Result<()> {
-		if self.is_visible() {
-			self.hide();
-			Ok(())
-		} else {
-			self.show()
-		}
-	}
+    ///
+    fn toggle_visible(&mut self) -> Result<()> {
+        if self.is_visible() {
+            self.hide();
+            Ok(())
+        } else {
+            self.show()
+        }
+    }
 }
 
-fn dialog_paragraph<'a>(
-	title: &'a str,
-	content: Text<'a>,
-	theme: &Theme,
-	focused: bool,
-) -> Paragraph<'a> {
-	Paragraph::new(content)
-		.block(
-			Block::default()
-				.title(Span::styled(title, theme.title(focused)))
-				.borders(Borders::ALL)
-				.border_style(theme.block(focused)),
-		)
-		.alignment(Alignment::Left)
+fn dialog_paragraph<'a>(title: &'a str, content: Text<'a>, theme: &Theme, focused: bool) -> Paragraph<'a> {
+    Paragraph::new(content)
+        .block(
+            Block::default()
+                .title(Span::styled(title, theme.title(focused)))
+                .borders(Borders::ALL)
+                .border_style(theme.block(focused)),
+        )
+        .alignment(Alignment::Left)
 }
 
-fn popup_paragraph<'a, T>(
-	title: &'a str,
-	content: T,
-	theme: &Theme,
-	focused: bool,
-	block: bool,
-) -> Paragraph<'a>
+fn popup_paragraph<'a, T>(title: &'a str, content: T, theme: &Theme, focused: bool, block: bool) -> Paragraph<'a>
 where
-	T: Into<Text<'a>>,
+    T: Into<Text<'a>>,
 {
-	let paragraph = Paragraph::new(content.into())
-		.alignment(Alignment::Left)
-		.wrap(Wrap { trim: true });
+    let paragraph = Paragraph::new(content.into())
+        .alignment(Alignment::Left)
+        .wrap(Wrap { trim: true });
 
-	if block {
-		paragraph.block(
-			Block::default()
-				.title(Span::styled(title, theme.title(focused)))
-				.borders(Borders::ALL)
-				.border_type(BorderType::Thick)
-				.border_style(theme.block(focused)),
-		)
-	} else {
-		paragraph
-	}
+    if block {
+        paragraph.block(
+            Block::default()
+                .title(Span::styled(title, theme.title(focused)))
+                .borders(Borders::ALL)
+                .border_type(BorderType::Thick)
+                .border_style(theme.block(focused)),
+        )
+    } else {
+        paragraph
+    }
 }
