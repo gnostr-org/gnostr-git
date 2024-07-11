@@ -1,17 +1,16 @@
 pub(crate) mod function {
-    use crate::{IdentityRef, SignatureRef};
     use bstr::ByteSlice;
     use gix_date::{time::Sign, OffsetInSeconds, SecondsSinceUnixEpoch, Time};
     use gix_utils::btoi::to_signed;
-    use winnow::error::{ErrMode, ErrorKind};
-    use winnow::stream::Stream;
     use winnow::{
         combinator::{alt, separated_pair, terminated},
-        error::{AddContext, ParserError, StrContext},
+        error::{AddContext, ErrMode, ErrorKind, ParserError, StrContext},
         prelude::*,
-        stream::AsChar,
+        stream::{AsChar, Stream},
         token::{take, take_until, take_while},
     };
+
+    use crate::{IdentityRef, SignatureRef};
 
     const SPACE: &[u8] = b" ";
 
