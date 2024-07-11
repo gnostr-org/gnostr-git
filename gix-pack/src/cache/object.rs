@@ -4,9 +4,11 @@ use crate::cache;
 
 #[cfg(feature = "object-cache-dynamic")]
 mod memory {
-    use crate::{cache, cache::set_vec_to_slice};
-    use clru::WeightScale;
     use std::num::NonZeroUsize;
+
+    use clru::WeightScale;
+
+    use crate::{cache, cache::set_vec_to_slice};
 
     struct Entry {
         data: Vec<u8>,
