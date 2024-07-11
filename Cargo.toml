@@ -216,6 +216,11 @@ panic = 'unwind'
 incremental = false
 build-override = { opt-level = 0 }
 
+# The profile that 'cargo dist' will build with
+[profile.dist]
+inherits = "release"
+lto = "thin"
+
 # It's not quite worth building dependencies with more optimizations yet. Let's keep it here for later.
 #[profile.dev.package."*"]
 #opt-level = 2
@@ -306,9 +311,34 @@ faster-hex = { version = "0.9.0", default-features = false }
 reqwest = { version = "0.12.0", default-features = false, features = ["charset", "http2", "macos-system-configuration"] } # all but the 'default-tls' feature
 curl = { version = "0.4" }
 
+# Config for 'cargo dist'
+[workspace.metadata.dist]
+# The preferred cargo-dist version to use in CI (Cargo.toml SemVer syntax)
+cargo-dist-version = "0.18.0"
+# CI backends to support
+ci = "github"
+# The installers to generate for each app
+installers = ["shell", "powershell", "homebrew", "msi"]
+# A GitHub repo to push Homebrew formulas to
+tap = "gnostr-org/homebrew-gnostr-org"
+# Target platforms to build apps for (Rust target-triple syntax)
+targets = ["aarch64-apple-darwin", "x86_64-apple-darwin", "x86_64-unknown-linux-gnu", "x86_64-unknown-linux-musl", "x86_64-pc-windows-msvc"]
+# Publish jobs to run in CI
+publish-jobs = ["homebrew"]
+# Publish jobs to run in CI
+pr-run-mode = "plan"
+# Whether to install an updater program
+install-updater = true
+
 [package.metadata.docs.rs]
 features = ["document-features", "max"]
 
 [package.metadata.binstall]
 pkg-url = "{ repo }/releases/download/v{ version }/gitoxide-max-pure-v{ version }-{ target }{ archive-suffix }"
 bin-dir = "gitoxide-max-pure-v{ version }-{ target }/{ bin }{ binary-ext }"
+
+[package.metadata.wix]
+upgrade-guid = "3948C2F5-42AB-4122-BF18-7E879AF01C18"
+path-guid = "54F848ED-738E-42FF-8925-4C355CCDB5D0"
+license = false
+eula = false

@@ -49,3 +49,9 @@ document-features = { version = "0.2.1", optional = true }
 [package.metadata.docs.rs]
 all-features = true
 features = ["document-features"]
+
+[package.metadata.wix]
+upgrade-guid = "A431C232-FB9E-4E63-8311-3993F7216631"
+path-guid = "54BC1834-DE60-4F45-AD17-95D3CD96A527"
+license = false
+eula = false

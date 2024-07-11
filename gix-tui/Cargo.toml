@@ -8,6 +8,12 @@ authors = ["Sebastian Thiel <sebastian.thiel@icloud.com>"]
 edition = "2021"
 rust-version = "1.65"
 
+[package.metadata.wix]
+upgrade-guid = "A64E86CC-3D19-4E99-BD5E-8380308EAEFB"
+path-guid = "CEA97E3A-13C9-4C0F-9888-4C95F39E20B6"
+license = false
+eula = false
+
 [[bin]]
 name = "gixi"
 path = "src/main.rs"
