@@ -1222,31 +1222,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4271d37baee1b8c7e4b708028c57d816cf9d2434acb33a549475f78c181f6253"
 
 [[package]]
-name = "gitoxide"
-version = "0.36.1"
-dependencies = [
- "anyhow",
- "clap",
- "clap_complete",
- "crosstermion",
- "document-features",
- "env_logger",
- "futures-lite 2.1.0",
- "gitoxide-core",
- "gix",
- "gix-features 0.38.2",
- "is-terminal",
- "once_cell",
- "prodash",
- "serde_derive",
- "terminal_size",
- "time",
- "tracing",
- "tracing-forest",
- "tracing-subscriber",
-]
-
-[[package]]
 name = "gitoxide-core"
 version = "0.38.0"
 dependencies = [
@@ -2849,6 +2824,31 @@ dependencies = [
  "futures-core",
  "js-sys",
  "wasm-bindgen",
+]
+
+[[package]]
+name = "gnostr-git"
+version = "0.36.1"
+dependencies = [
+ "anyhow",
+ "clap",
+ "clap_complete",
+ "crosstermion",
+ "document-features",
+ "env_logger",
+ "futures-lite 2.1.0",
+ "gitoxide-core",
+ "gix",
+ "gix-features 0.38.2",
+ "is-terminal",
+ "once_cell",
+ "prodash",
+ "serde_derive",
+ "terminal_size",
+ "time",
+ "tracing",
+ "tracing-forest",
+ "tracing-subscriber",
 ]
 
 [[package]]
