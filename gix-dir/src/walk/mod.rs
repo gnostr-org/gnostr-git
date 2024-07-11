@@ -1,7 +1,8 @@
-use crate::{entry, EntryRef};
+use std::{path::PathBuf, sync::atomic::AtomicBool};
+
 use bstr::BStr;
-use std::path::PathBuf;
-use std::sync::atomic::AtomicBool;
+
+use crate::{entry, EntryRef};
 
 /// A type returned by the [`Delegate::emit()`] as passed to [`walk()`](function::walk()).
 #[derive(Debug, Copy, Clone, Eq, PartialEq)]
@@ -15,8 +16,7 @@ pub enum Action {
 
 /// Ready-made delegate implementations.
 pub mod delegate {
-    use crate::walk::Action;
-    use crate::{entry, walk, Entry, EntryRef};
+    use crate::{entry, walk, walk::Action, Entry, EntryRef};
 
     type Entries = Vec<(Entry, Option<entry::Status>)>;
 

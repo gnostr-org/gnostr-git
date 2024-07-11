@@ -1,10 +1,12 @@
-use crate::walk_utils::{collect, entryps, fixture, options};
-use gix_dir::entry::Kind::File;
-use gix_dir::entry::PathspecMatch::Prefix;
-use gix_dir::entry::Status::Untracked;
-use gix_dir::walk;
-use pretty_assertions::assert_eq;
 use std::path::Path;
+
+use gix_dir::{
+    entry::{Kind::File, PathspecMatch::Prefix, Status::Untracked},
+    walk,
+};
+use pretty_assertions::assert_eq;
+
+use crate::walk_utils::{collect, entryps, fixture, options};
 
 pub mod walk_utils;
 

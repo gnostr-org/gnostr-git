@@ -1,13 +1,24 @@
-use bstr::{BStr, BString, ByteSlice};
-use std::borrow::Cow;
-use std::path::{Path, PathBuf};
-use std::sync::atomic::Ordering;
+use std::{
+    borrow::Cow,
+    path::{Path, PathBuf},
+    sync::atomic::Ordering,
+};
 
-use crate::entry::{PathspecMatch, Status};
-use crate::walk::function::{can_recurse, emit_entry};
-use crate::walk::EmissionMode::CollapseDirectory;
-use crate::walk::{classify, Action, CollapsedEntriesEmissionMode, Context, Delegate, Error, Options, Outcome};
-use crate::{entry, walk, Entry, EntryRef};
+use bstr::{BStr, BString, ByteSlice};
+
+use crate::{
+    entry,
+    entry::{PathspecMatch, Status},
+    walk,
+    walk::{
+        classify,
+        function::{can_recurse, emit_entry},
+        Action, CollapsedEntriesEmissionMode, Context, Delegate,
+        EmissionMode::CollapseDirectory,
+        Error, Options, Outcome,
+    },
+    Entry, EntryRef,
+};
 
 /// ### Deviation
 ///

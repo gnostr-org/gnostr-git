@@ -2,8 +2,9 @@
 #![deny(missing_docs, rust_2018_idioms)]
 #![forbid(unsafe_code)]
 
-use bstr::{BStr, BString};
 use std::borrow::Cow;
+
+use bstr::{BStr, BString};
 
 /// A directory entry, typically obtained using [`walk()`].
 #[derive(Debug, Clone, PartialEq, Eq, Hash, Ord, PartialOrd)]
