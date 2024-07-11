@@ -11,13 +11,12 @@ use gix_features::parallel::{in_parallel_if, Reduce};
 use gix_filter::pipeline::convert::ToGitOutcome;
 use gix_object::FindExt;
 
-use crate::index_as_worktree::Context;
 use crate::{
     index_as_worktree::{
         traits,
         traits::{read_data::Stream, CompareBlobs, SubmoduleStatus},
         types::{Error, Options},
-        Change, Conflict, EntryStatus, Outcome, VisitEntry,
+        Change, Conflict, Context, EntryStatus, Outcome, VisitEntry,
     },
     is_dir_to_mode, SymlinkCheck,
 };

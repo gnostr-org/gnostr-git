@@ -1,6 +1,8 @@
-use crate::index_as_worktree::{Change, EntryStatus};
-use bstr::{BStr, ByteSlice};
 use std::sync::atomic::AtomicBool;
+
+use bstr::{BStr, ByteSlice};
+
+use crate::index_as_worktree::{Change, EntryStatus};
 
 /// The error returned by [index_as_worktree_with_renames()`](crate::index_as_worktree_with_renames()).
 #[derive(Debug, thiserror::Error)]

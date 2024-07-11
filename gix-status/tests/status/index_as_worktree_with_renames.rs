@@ -1,14 +1,13 @@
-use crate::status::fixture_path;
 use bstr::ByteSlice;
-use gix_diff::blob::pipeline::WorktreeRoots;
-use gix_diff::rewrites::CopySource;
-use gix_status::index_as_worktree::traits::FastEq;
-use gix_status::index_as_worktree::{Change, EntryStatus};
-use gix_status::index_as_worktree_with_renames;
-use gix_status::index_as_worktree_with_renames::{
-    Context, DirwalkContext, Entry, Options, Outcome, Recorder, Sorting, Summary,
+use gix_diff::{blob::pipeline::WorktreeRoots, rewrites::CopySource};
+use gix_status::{
+    index_as_worktree::{traits::FastEq, Change, EntryStatus},
+    index_as_worktree_with_renames,
+    index_as_worktree_with_renames::{Context, DirwalkContext, Entry, Options, Outcome, Recorder, Sorting, Summary},
 };
 use pretty_assertions::assert_eq;
+
+use crate::status::fixture_path;
 
 #[test]
 fn changed_and_untracked_and_renamed() {

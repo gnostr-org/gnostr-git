@@ -1,5 +1,6 @@
-use bstr::{BStr, BString};
 use std::sync::atomic::AtomicBool;
+
+use bstr::{BStr, BString};
 
 /// The error returned by [index_as_worktree()`](crate::index_as_worktree()).
 #[derive(Debug, thiserror::Error)]

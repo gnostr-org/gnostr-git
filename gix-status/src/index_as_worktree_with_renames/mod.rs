@@ -6,14 +6,19 @@ mod recorder;
 pub use recorder::Recorder;
 
 pub(super) mod function {
-    use crate::index_as_worktree::traits::{CompareBlobs, SubmoduleStatus};
-    use crate::index_as_worktree_with_renames::function::rewrite::ModificationOrDirwalkEntry;
-    use crate::index_as_worktree_with_renames::{Context, Entry, Error, Options, Outcome, RewriteSource, VisitEntry};
-    use crate::is_dir_to_mode;
+    use std::{borrow::Cow, path::Path};
+
     use bstr::ByteSlice;
     use gix_worktree::stack::State;
-    use std::borrow::Cow;
-    use std::path::Path;
+
+    use crate::{
+        index_as_worktree::traits::{CompareBlobs, SubmoduleStatus},
+        index_as_worktree_with_renames::{
+            function::rewrite::ModificationOrDirwalkEntry, Context, Entry, Error, Options, Outcome, RewriteSource,
+            VisitEntry,
+        },
+        is_dir_to_mode,
+    };
 
     /// Similar to [`index_as_worktree(…)`](crate::index_as_worktree()), except that it will automatically
     /// track renames if enabled, while additionally providing information about untracked files
@@ -340,10 +345,13 @@ pub(super) mod function {
     }
 
     mod tracked_modifications {
-        use crate::index_as_worktree::{EntryStatus, Record};
-        use crate::index_as_worktree_with_renames::function::Event;
         use bstr::BStr;
         use gix_index::Entry;
+
+        use crate::{
+            index_as_worktree::{EntryStatus, Record},
+            index_as_worktree_with_renames::function::Event,
+        };
 
         pub(super) struct Delegate<'index, T, U> {
             pub(super) tx: std::sync::mpsc::Sender<Event<'index, T, U>>,
@@ -374,11 +382,11 @@ pub(super) mod function {
     }
 
     mod dirwalk {
-        use super::Event;
-        use gix_dir::entry::Status;
-        use gix_dir::walk::Action;
-        use gix_dir::EntryRef;
         use std::sync::atomic::{AtomicBool, Ordering};
+
+        use gix_dir::{entry::Status, walk::Action, EntryRef};
+
+        use super::Event;
 
         pub(super) struct Delegate<'index, 'a, T, U> {
             pub(super) tx: std::sync::mpsc::Sender<Event<'index, T, U>>,
@@ -400,16 +408,19 @@ pub(super) mod function {
     }
 
     mod rewrite {
-        use crate::index_as_worktree::{Change, EntryStatus};
-        use crate::index_as_worktree_with_renames::{Entry, Error};
+        use std::{io::Read, path::Path};
+
         use bstr::BStr;
         use gix_diff::rewrites::tracker::ChangeKind;
         use gix_dir::entry::Kind;
         use gix_filter::pipeline::convert::ToGitOutcome;
         use gix_hash::oid;
         use gix_object::tree::EntryMode;
-        use std::io::Read;
-        use std::path::Path;
+
+        use crate::{
+            index_as_worktree::{Change, EntryStatus},
+            index_as_worktree_with_renames::{Entry, Error},
+        };
 
         #[derive(Clone)]
         pub enum ModificationOrDirwalkEntry<'index, T, U>
