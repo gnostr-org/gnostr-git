@@ -2828,7 +2828,7 @@ dependencies = [
 
 [[package]]
 name = "gnostr-git"
-version = "0.36.1"
+version = "0.0.1"
 dependencies = [
  "anyhow",
  "clap",

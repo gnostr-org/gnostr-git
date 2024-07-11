@@ -1,11 +1,11 @@
 [package]
 name = "gnostr-git"
 description = "A command-line application for interacting with git repositories"
-repository = "https://github.com/Byron/gitoxide"
-authors = ["Sebastian Thiel <sebastian.thiel@icloud.com>"]
+repository = "https://github.com/gnostr-org/gnostr-git"
+authors = ["Sebastian Thiel <sebastian.thiel@icloud.com>", "gnostr <admin@gnostr.org>"]
 edition = "2021"
 license = "MIT OR Apache-2.0"
-version = "0.36.1"
+version = "0.0.1"
 default-run = "gix"
 include = ["src/**/*", "LICENSE-*", "README.md"]
 resolver = "2"
