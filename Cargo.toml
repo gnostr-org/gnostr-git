@@ -1,5 +1,5 @@
 [package]
-name = "gitoxide"
+name = "gnostr-git"
 description = "A command-line application for interacting with git repositories"
 repository = "https://github.com/Byron/gitoxide"
 authors = ["Sebastian Thiel <sebastian.thiel@icloud.com>"]
