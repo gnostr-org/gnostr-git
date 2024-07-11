@@ -23,9 +23,7 @@ mod shared {
 
 #[cfg(any(feature = "walkdir", feature = "fs-walkdir-parallel", feature = "fs-read-dir"))]
 mod walkdir_precompose {
-    use std::borrow::Cow;
-    use std::ffi::OsStr;
-    use std::path::Path;
+    use std::{borrow::Cow, ffi::OsStr, path::Path};
 
     #[derive(Debug)]
     pub struct DirEntry<T: std::fmt::Debug> {
@@ -119,10 +117,7 @@ mod walkdir_precompose {
 #[allow(clippy::empty_docs)]
 #[cfg(feature = "fs-read-dir")]
 pub mod read_dir {
-    use std::borrow::Cow;
-    use std::ffi::OsStr;
-    use std::fs::FileType;
-    use std::path::Path;
+    use std::{borrow::Cow, ffi::OsStr, fs::FileType, path::Path};
 
     /// A directory entry adding precompose-unicode support to [`std::fs::DirEntry`].
     pub type DirEntry = super::walkdir_precompose::DirEntry<std::fs::DirEntry>;
@@ -146,10 +141,7 @@ pub mod read_dir {
 #[allow(clippy::empty_docs)]
 #[cfg(feature = "fs-walkdir-parallel")]
 pub mod walkdir {
-    use std::borrow::Cow;
-    use std::ffi::OsStr;
-    use std::fs::FileType;
-    use std::path::Path;
+    use std::{borrow::Cow, ffi::OsStr, fs::FileType, path::Path};
 
     use jwalk::WalkDir as WalkDirImpl;
     pub use jwalk::{DirEntry as DirEntryGeneric, DirEntryIter as DirEntryIterGeneric, Error};
@@ -268,10 +260,7 @@ pub mod walkdir {
 #[allow(clippy::empty_docs)]
 #[cfg(all(feature = "walkdir", not(feature = "fs-walkdir-parallel")))]
 pub mod walkdir {
-    use std::borrow::Cow;
-    use std::ffi::OsStr;
-    use std::fs::FileType;
-    use std::path::Path;
+    use std::{borrow::Cow, ffi::OsStr, fs::FileType, path::Path};
 
     pub use walkdir::Error;
     use walkdir::{DirEntry as DirEntryImpl, WalkDir as WalkDirImpl};
