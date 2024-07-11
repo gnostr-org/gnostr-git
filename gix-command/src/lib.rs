@@ -2,9 +2,9 @@
 #![deny(rust_2018_idioms, missing_docs)]
 #![forbid(unsafe_code)]
 
-use std::io::Read;
 use std::{
     ffi::OsString,
+    io::Read,
     path::{Path, PathBuf},
 };
 
@@ -79,8 +79,8 @@ pub struct Context {
 }
 
 mod prepare {
-    use std::borrow::Cow;
     use std::{
+        borrow::Cow,
         ffi::OsString,
         process::{Command, Stdio},
     };
@@ -332,9 +332,9 @@ pub fn extract_interpreter(executable: &Path) -> Option<shebang::Data> {
 ///
 #[allow(clippy::empty_docs)]
 pub mod shebang {
+    use std::{ffi::OsString, path::PathBuf};
+
     use bstr::{BStr, ByteSlice};
-    use std::ffi::OsString;
-    use std::path::PathBuf;
 
     /// Parse `buf` to extract all shebang information.
     pub fn parse(buf: &BStr) -> Option<Data> {
