@@ -1,7 +1,6 @@
 use std::{ffi::OsStr, io::ErrorKind};
 
 use bstr::{BString, ByteSlice, ByteVec};
-
 use gix_url::ArgumentSafety::*;
 
 use crate::{
