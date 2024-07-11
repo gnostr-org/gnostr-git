@@ -23,10 +23,10 @@ mod component {
     };
 
     mod valid {
-        use crate::path::component::{ALL_OPTS, NO_OPTS};
         use bstr::ByteSlice;
-        use gix_validate::path::component;
-        use gix_validate::path::component::Mode::Symlink;
+        use gix_validate::path::{component, component::Mode::Symlink};
+
+        use crate::path::component::{ALL_OPTS, NO_OPTS};
         macro_rules! mktest {
             ($name:ident, $input:expr) => {
                 mktest!($name, $input, ALL_OPTS);
@@ -100,10 +100,10 @@ mod component {
     }
 
     mod invalid {
-        use crate::path::component::{ALL_OPTS, NO_OPTS};
         use bstr::ByteSlice;
-        use gix_validate::path::component::Error;
-        use gix_validate::path::component::Mode::Symlink;
+        use gix_validate::path::component::{Error, Mode::Symlink};
+
+        use crate::path::component::{ALL_OPTS, NO_OPTS};
 
         macro_rules! mktest {
             ($name:ident, $input:expr, $expected:pat) => {
