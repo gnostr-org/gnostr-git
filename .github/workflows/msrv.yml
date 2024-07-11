@@ -23,6 +23,11 @@ jobs:
       rust_version: 1.67.0
     steps:
       - uses: actions/checkout@v4
+        with:
+          submodules: 'true'
+          set-safe-directory: 'true'
+          fetch-depth: '0'
+          fetch-tags: false
       - uses: extractions/setup-just@v2
       - run: |
           rustup toolchain install ${{ env.rust_version }} --profile minimal --no-self-update
