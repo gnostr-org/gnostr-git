@@ -1,5 +1,6 @@
-use crate::{parse, path::interpolate};
 use std::path::PathBuf;
+
+use crate::{parse, path::interpolate};
 
 /// The error returned when following includes.
 #[derive(Debug, thiserror::Error)]
