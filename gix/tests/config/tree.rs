@@ -147,9 +147,9 @@ mod ssh {
 
 #[cfg(feature = "status")]
 mod status {
+    use gix::{config::tree::Status, status::UntrackedFiles};
+
     use crate::config::tree::bcow;
-    use gix::config::tree::Status;
-    use gix::status::UntrackedFiles;
 
     #[test]
     fn default() -> crate::Result {
@@ -177,9 +177,9 @@ mod status {
 }
 
 mod push {
+    use gix::{config::tree::Push, push};
+
     use crate::config::tree::bcow;
-    use gix::config::tree::Push;
-    use gix::push;
 
     #[test]
     fn default() -> crate::Result {

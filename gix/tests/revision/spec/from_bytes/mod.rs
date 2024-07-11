@@ -13,8 +13,10 @@ mod traverse;
 mod peel;
 
 mod sibling_branch {
-    use crate::revision::spec::from_bytes::{parse_spec, repo};
-    use crate::util::hex_to_id;
+    use crate::{
+        revision::spec::from_bytes::{parse_spec, repo},
+        util::hex_to_id,
+    };
 
     #[test]
     fn push_and_upstream() -> crate::Result {

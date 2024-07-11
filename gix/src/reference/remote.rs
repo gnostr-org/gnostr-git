@@ -1,7 +1,12 @@
-use crate::repository::{branch_remote_ref_name, branch_remote_tracking_ref_name};
-use crate::{remote, Reference};
-use gix_ref::FullNameRef;
 use std::borrow::Cow;
+
+use gix_ref::FullNameRef;
+
+use crate::{
+    remote,
+    repository::{branch_remote_ref_name, branch_remote_tracking_ref_name},
+    Reference,
+};
 
 /// Remotes
 impl<'repo> Reference<'repo> {

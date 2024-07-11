@@ -1,6 +1,7 @@
-use crate::config;
-use crate::config::tree::sections::Status;
-use crate::config::tree::{keys, Key, Section};
+use crate::{
+    config,
+    config::tree::{keys, sections::Status, Key, Section},
+};
 
 impl Status {
     /// The `status.showUntrackedFiles` key

@@ -1,5 +1,6 @@
-use crate::dirwalk::Options;
 use gix_dir::walk::{CollapsedEntriesEmissionMode, EmissionMode, ForDeletionMode};
+
+use crate::dirwalk::Options;
 
 /// Construction
 impl Options {

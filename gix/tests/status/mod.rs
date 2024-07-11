@@ -18,9 +18,10 @@ pub fn repo(name: &str) -> crate::Result<gix::Repository> {
 
 mod index_worktree {
     mod iter {
-        use crate::status::{repo, submodule_repo};
         use gix::status::index_worktree::iter::Item;
         use pretty_assertions::assert_eq;
+
+        use crate::status::{repo, submodule_repo};
 
         #[test]
         fn item_size() {

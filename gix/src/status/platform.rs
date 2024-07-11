@@ -1,5 +1,6 @@
-use crate::status::{index_worktree, OwnedOrStaticAtomicBool, Platform, Submodule, UntrackedFiles};
 use std::sync::atomic::AtomicBool;
+
+use crate::status::{index_worktree, OwnedOrStaticAtomicBool, Platform, Submodule, UntrackedFiles};
 
 /// Builder
 impl<'repo, Progress> Platform<'repo, Progress>

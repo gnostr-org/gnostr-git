@@ -49,12 +49,16 @@ impl Snapshot<'_> {
 }
 
 pub(super) mod function {
-    use crate::bstr::{ByteSlice, ByteVec};
-    use crate::config::cache::util::ApplyLeniency;
-    use crate::config::credential_helpers::Error;
-    use crate::config::tree::gitoxide::Credentials;
-    use crate::config::tree::{credential, Core, Credential};
     use std::borrow::Cow;
+
+    use crate::{
+        bstr::{ByteSlice, ByteVec},
+        config::{
+            cache::util::ApplyLeniency,
+            credential_helpers::Error,
+            tree::{credential, gitoxide::Credentials, Core, Credential},
+        },
+    };
 
     /// Returns the configuration for all git-credential helpers from trusted configuration that apply
     /// to the given `url` along with an action preconfigured to invoke the cascade with to retrieve it.

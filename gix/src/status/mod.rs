@@ -1,7 +1,6 @@
-use crate::config::cache::util::ApplyLeniencyDefault;
-use crate::util::OwnedOrStaticAtomicBool;
-use crate::{config, Repository};
 pub use gix_status as plumbing;
+
+use crate::{config, config::cache::util::ApplyLeniencyDefault, util::OwnedOrStaticAtomicBool, Repository};
 
 /// A structure to hold options configuring the status request, which can then be turned into an iterator.
 pub struct Platform<'repo, Progress>

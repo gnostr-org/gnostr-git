@@ -1,5 +1,6 @@
-use gix::bstr::BStr;
 use std::borrow::Cow;
+
+use gix::bstr::BStr;
 
 use crate::remote;
 
@@ -53,13 +54,14 @@ fn remote_default_name() {
 }
 
 mod branch_remote {
+    use gix::{config::tree::Push, remote};
+
     use crate::util::named_subrepo_opts;
-    use gix::config::tree::Push;
-    use gix::remote;
 
     mod name {
-        use crate::repository::config::remote::branch_remote::repo;
         use gix::remote;
+
+        use crate::repository::config::remote::branch_remote::repo;
 
         #[test]
         fn push() -> crate::Result {
