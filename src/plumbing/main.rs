@@ -7,19 +7,21 @@ use std::{
     },
 };
 
-use crate::shared::pretty::prepare_and_run;
 use anyhow::{anyhow, Context, Result};
 use clap::{CommandFactory, Parser};
 use gitoxide_core as core;
 use gitoxide_core::{pack::verify, repository::PathsOrPatterns};
 use gix::bstr::{io::BufReadExt, BString};
 
-use crate::plumbing::{
-    options::{
-        attributes, commit, commitgraph, config, credential, exclude, free, fsck, index, mailmap, odb, revision, tree,
-        Args, Subcommands,
+use crate::{
+    plumbing::{
+        options::{
+            attributes, commit, commitgraph, config, credential, exclude, free, fsck, index, mailmap, odb, revision,
+            tree, Args, Subcommands,
+        },
+        show_progress,
     },
-    show_progress,
+    shared::pretty::prepare_and_run,
 };
 
 #[cfg(feature = "gitoxide-core-async-client")]

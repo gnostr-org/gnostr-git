@@ -415,8 +415,9 @@ pub use self::clap::{
 
 #[cfg(test)]
 mod value_parser_tests {
-    use super::ParseRenameFraction;
     use clap::Parser;
+
+    use super::ParseRenameFraction;
 
     #[test]
     fn rename_fraction() {

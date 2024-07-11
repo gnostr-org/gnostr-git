@@ -3,12 +3,14 @@ use std::sync::{
     Arc,
 };
 
-use crate::shared::pretty::prepare_and_run;
 use anyhow::{anyhow, Result};
 use clap::{CommandFactory, Parser};
 use gitoxide_core as core;
 
-use crate::porcelain::options::{Args, Subcommands};
+use crate::{
+    porcelain::options::{Args, Subcommands},
+    shared::pretty::prepare_and_run,
+};
 
 pub fn main() -> Result<()> {
     let args: Args = Args::parse_from(gix::env::args_os());

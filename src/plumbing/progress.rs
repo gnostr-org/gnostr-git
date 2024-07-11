@@ -1,5 +1,7 @@
-use std::fmt::{Display, Formatter};
-use std::io::StdoutLock;
+use std::{
+    fmt::{Display, Formatter},
+    io::StdoutLock,
+};
 
 #[derive(Clone)]
 enum Usage {

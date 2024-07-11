@@ -1,5 +1,6 @@
-use clap_complete::Shell;
 use std::path::PathBuf;
+
+use clap_complete::Shell;
 
 #[derive(Debug, clap::Parser)]
 #[clap(name = "ein", about = "The rusty git", version = option_env!("GIX_VERSION"))]
