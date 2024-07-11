@@ -26,14 +26,14 @@ pub(crate) mod function {
     use std::ffi::OsString;
 
     use anyhow::{anyhow, Context};
-    use gix::diff::blob::ResourceKind;
-    use gix::filter::plumbing::driver::apply::Delay;
-    use gix::revision::Spec;
+    use gix::{diff::blob::ResourceKind, filter::plumbing::driver::apply::Delay, revision::Spec};
 
     use super::Options;
-    use crate::repository::revision::resolve::BlobFormat;
     use crate::{
-        repository::{revision, revision::resolve::TreeMode},
+        repository::{
+            revision,
+            revision::resolve::{BlobFormat, TreeMode},
+        },
         OutputFormat,
     };
 

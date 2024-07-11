@@ -20,17 +20,23 @@ pub struct Options {
     pub find_untracked_repositories: FindRepository,
 }
 pub(crate) mod function {
-    use crate::repository::clean::{FindRepository, Options};
-    use crate::OutputFormat;
+    use std::{borrow::Cow, path::Path};
+
     use anyhow::bail;
-    use gix::bstr::BString;
-    use gix::bstr::ByteSlice;
-    use gix::dir::entry::{Kind, Status};
-    use gix::dir::walk::EmissionMode::CollapseDirectory;
-    use gix::dir::walk::ForDeletionMode::*;
-    use gix::dir::{walk, EntryRef};
-    use std::borrow::Cow;
-    use std::path::Path;
+    use gix::{
+        bstr::{BString, ByteSlice},
+        dir::{
+            entry::{Kind, Status},
+            walk,
+            walk::{EmissionMode::CollapseDirectory, ForDeletionMode::*},
+            EntryRef,
+        },
+    };
+
+    use crate::{
+        repository::clean::{FindRepository, Options},
+        OutputFormat,
+    };
 
     pub fn clean(
         repo: gix::Repository,
