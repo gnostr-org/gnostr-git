@@ -6,7 +6,7 @@ repository = "https://github.com/gnostr-org/gnostr-git.git"
 authors = ["Sebastian Thiel <sebastian.thiel@icloud.com>", "gnostr <admin@gnostr.org>"]
 edition = "2021"
 license = "MIT OR Apache-2.0"
-version = "0.0.1"
+version = "0.0.3"
 default-run = "gix"
 include = ["src/**/*", "LICENSE-*", "README.md"]
 resolver = "2"
@@ -27,6 +27,7 @@ doctest = false
 
 [features]
 default = ["max-pure"]
+
 #! ### Build Configuration
 #! These combine common choices of building blocks to represent typical builds.
 
@@ -69,7 +70,9 @@ small = ["pretty-cli", "gix-features/rustsha1", "gix-features/zlib-rust-backend"
 ## Due to async client-networking not being implemented for most transports, this one supports only the 'git+tcp' and HTTP transport.
 ## It uses, however, a fully asynchronous networking implementation which can serve a real-world example on how to implement custom async transports.
 lean-async = ["fast", "tracing", "pretty-cli", "gitoxide-core-tools", "gitoxide-core-tools-query", "gitoxide-core-tools-corpus", "gitoxide-core-async-client", "prodash-render-line"]
-#! ### Package Maintainers#! `*-control` features leave it to you to configure C libraries, involving choices for `zlib`, ! hashing and transport implementation.
+
+#! ### Package Maintainers
+#! `*-control` features leave it to you to configure C libraries, involving choices for `zlib`, ! hashing and transport implementation.
 #!
 #! Additional features *can* be provided with `--features` and are handled by the [`gix-features` crate](https://docs.rs/gix-features/latest).
 #! If nothing else is specified, the Rust implementation is used. ! Note that only one feature of each section can be enabled at a time.
@@ -162,35 +165,36 @@ http-client-reqwest = ["gix/blocking-http-transport-reqwest-rust-tls"]
 ## Use async client networking.
 gitoxide-core-async-client = ["gitoxide-core/async-client", "futures-lite"]
 
+
 [dependencies]
 anyhow = "1.0.42"
 
+gitoxide-core = { version = "^0.38.0", path = "gitoxide-core" }
+gix-features = { version = "^0.38.2", path = "gix-features" }
+gix = { version = "^0.63.0", path = "gix", default-features = false }
+time = "0.3.23"
+
 clap = { version = "4.1.1", features = ["derive", "cargo"] }
 clap_complete = "4.4.3"
-crosstermion = { version = "0.13.0", optional = true, default-features = false }
-document-features = { version = "0.2.0", optional = true }
-env_logger = { version = "0.10.0", default-features = false }
-futures-lite = { workspace = true, optional = true }
-
-gitoxide-core = { version = "^0.38.0", path = "gitoxide-core" }
-gix = { version = "^0.63.0", path = "gix", default-features = false }
-gix-features = { version = "^0.38.2", path = "gix-features" }
-is-terminal = { version = "0.4.0", optional = true }
-
-once_cell = "1.18.0"
 prodash = { workspace = true, optional = true }
-
-# Avoid pre-compiled binaries, see https://github.com/serde-rs/serde/issues/2538 and https://github.com/serde-rs/serde/pull/2590
-serde_derive = ">=1.0.185"
-
-# for config-tree
-terminal_size = "0.3.0"
-time = "0.3.23"
-tracing = { version = "0.1.37", optional = true }
+is-terminal = { version = "0.4.0", optional = true }
+env_logger = { version = "0.10.0", default-features = false }
+crosstermion = { version = "0.13.0", optional = true, default-features = false }
+futures-lite = { workspace = true, optional = true }
 
 # for 'tracing'
 tracing-forest = { version = "0.1.5", features = ["serde"], optional = true }
 tracing-subscriber = { version = "0.3.17", optional = true }
+tracing = { version = "0.1.37", optional = true }
+
+# for config-tree
+terminal_size = "0.3.0"
+
+# Avoid pre-compiled binaries, see https://github.com/serde-rs/serde/issues/2538 and https://github.com/serde-rs/serde/pull/2590
+serde_derive = ">=1.0.185"
+
+once_cell = "1.18.0"
+document-features = { version = "0.2.0", optional = true }
 
 [profile.dev.package]
 gix-object = { opt-level = 3 }
@@ -217,88 +221,89 @@ build-override = { opt-level = 0 }
 [profile.dist]
 inherits = "release"
 lto = "thin"
+
 # It's not quite worth building dependencies with more optimizations yet. Let's keep it here for later.
 #[profile.dev.package."*"]
 #opt-level = 2
 
 [workspace]
 members = [
-    "gitoxide-core",
-    "gix",
     "gix-actor",
-    "gix-archive",
-    "gix-attributes",
-    "gix-bitmap",
-    "gix-blame",
-    "gix-chunk",
+    "gix-url",
+    "gix-hash",
+    "gix-validate",
+    "gix-ref",
     "gix-command",
-    "gix-commitgraph",
     "gix-config",
     "gix-config-value",
-    "gix-config/tests",
-    "gix-credentials",
-    "gix-date",
-    "gix-diff",
-    "gix-diff/tests",
-    "gix-dir",
     "gix-discover",
     "gix-features",
-    "gix-fetchhead",
-    "gix-filter",
-    "gix-fs",
-    "gix-fsck",
-    "gix-glob",
-    "gix-hash",
-    "gix-hashtable",
-    "gix-ignore",
-    "gix-index",
-    "gix-index/tests",
-    "gix-lfs",
-    "gix-lock",
-    "gix-macros",
-    "gix-mailmap",
-    "gix-negotiate",
-    "gix-note",
-    "gix-object",
-    "gix-odb",
-    "gix-odb/tests",
-    "gix-pack",
-    "gix-pack/tests",
-    "gix-packetline",
-    "gix-packetline-blocking",
-    "gix-path",
-    "gix-pathspec",
-    "gix-prompt",
-    "gix-protocol",
-    "gix-quote",
-    "gix-rebase",
-    "gix-ref",
-    "gix-ref/tests",
-    "gix-refspec",
-    "gix-revision",
-    "gix-revwalk",
-    "gix-sec",
-    "gix-sequencer",
-    "gix-status",
-    "gix-status/tests",
-    "gix-submodule",
-    "gix-tempfile",
-    "gix-tix",
     "gix-trace",
-    "gix-transport",
+    "gix-commitgraph",
+    "gix-chunk",
+    "gix-quote",
+    "gix-object",
+    "gix-glob",
+    "gix-diff",
+    "gix-date",
     "gix-traverse",
-    "gix-traverse/tests",
-    "gix-tui",
-    "gix-tui/asyncgit", "gix-tui/filetreelist", "gix-tui/git2-hooks", "gix-tui/git2-testing", "gix-tui/scopetime",
-    "gix-url",
-    "gix-utils",
-    "gix-validate",
+    "gix-dir",
+    "gix-index",
+    "gix-bitmap",
     "gix-worktree",
     "gix-worktree-state",
-    "gix-worktree-state/tests",
+    "gix-status",
+    "gix-revision",
+    "gix-packetline",
+    "gix-packetline-blocking",
+    "gix-mailmap",
+    "gix-macros",
+    "gix-note",
+    "gix-negotiate",
+    "gix-fetchhead",
+    "gix-prompt",
+    "gix-filter",
+    "gix-sec",
+    "gix-lfs",
+    "gix-rebase",
+    "gix-sequencer",
+    "gix-submodule",
+    "gix-transport",
+    "gix-credentials",
+    "gix-protocol",
+    "gix-pack",
+    "gix-odb",
+    "gix-tempfile",
+    "gix-lock",
+    "gix-attributes",
+    "gix-ignore",
+    "gix-pathspec",
+    "gix-refspec",
+    "gix-path",
+    "gix-utils",
+    "gix-fs",
+    "gix-blame",
+    "gix",
+    "gitoxide-core",
+    "gix-hashtable",
+    "gix-tui",
+    "gix-tui/asyncgit", "gix-tui/filetreelist", "gix-tui/git2-hooks", "gix-tui/git2-testing", "gix-tui/scopetime",
+    "gix-tix",
+    "gix-archive",
     "gix-worktree-stream",
-    "gix-worktree/tests",
+    "gix-revwalk",
+    "gix-fsck",
     "tests/tools",
+    "gix-diff/tests",
+    "gix-pack/tests",
+    "gix-odb/tests",
+    "gix-worktree-state/tests",
+    "gix-status/tests",
+    "gix-worktree/tests",
+    "gix-index/tests",
+    "gix-ref/tests",
+    "gix-config/tests",
+    "gix-traverse/tests",
 ]
 
 [workspace.dependencies]
