@@ -1,6 +1,7 @@
+use std::path::Path;
+
 use bstr::BStr;
 use gix_pathspec::search::MatchKind::*;
-use std::path::Path;
 
 #[test]
 fn directories() -> crate::Result {
