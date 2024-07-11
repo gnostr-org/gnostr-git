@@ -1,5 +1,6 @@
-use crate::OutputFormat;
 use anyhow::bail;
+
+use crate::OutputFormat;
 
 pub enum Mode {
     IsClean,

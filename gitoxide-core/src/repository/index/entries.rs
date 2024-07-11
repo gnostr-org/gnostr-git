@@ -23,9 +23,9 @@ pub(crate) mod function {
         io::{BufWriter, Write},
     };
 
-    use gix::index::entry::Stage;
     use gix::{
         bstr::{BStr, BString},
+        index::entry::Stage,
         worktree::IndexPersistedOrInMemory,
         Repository,
     };

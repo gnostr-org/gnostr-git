@@ -1,7 +1,7 @@
-use anyhow::bail;
-use gix::bstr::{BString, ByteSlice};
 use std::io;
 
+use anyhow::bail;
+use gix::bstr::{BString, ByteSlice};
 #[cfg(feature = "serde")]
 use gix::mailmap::Entry;
 
