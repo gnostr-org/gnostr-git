@@ -1,8 +1,9 @@
 static DRIVER: &str = concat!(env!("CARGO"), " run --example arrow");
 
 mod baseline {
-    use crate::driver::DRIVER;
     use serial_test::serial;
+
+    use crate::driver::DRIVER;
 
     #[serial]
     #[test]
