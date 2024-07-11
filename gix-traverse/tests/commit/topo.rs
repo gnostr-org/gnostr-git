@@ -1,7 +1,8 @@
+use std::path::PathBuf;
+
 use gix_hash::{oid, ObjectId};
 use gix_object::bstr::ByteSlice;
 use gix_traverse::commit::{topo, Parents};
-use std::path::PathBuf;
 
 use crate::hex_to_id;
 
@@ -127,7 +128,6 @@ mod basic {
     use gix_traverse::commit::topo;
 
     use super::TraversalAssertion;
-
     use crate::hex_to_id;
 
     #[test]

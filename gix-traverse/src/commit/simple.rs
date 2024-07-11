@@ -1,8 +1,9 @@
+use std::collections::VecDeque;
+
 use gix_date::SecondsSinceUnixEpoch;
 use gix_hash::ObjectId;
 use gix_hashtable::HashSet;
 use smallvec::SmallVec;
-use std::collections::VecDeque;
 
 /// Specify how to sort commits during a [simple](super::Simple) traversal.
 ///
