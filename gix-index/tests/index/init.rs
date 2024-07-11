@@ -1,7 +1,7 @@
+use std::{error::Error, path::Path};
+
 use gix_index::State;
 use gix_testtools::scripted_fixture_read_only_standalone;
-use std::error::Error;
-use std::path::Path;
 
 #[test]
 fn from_tree() -> crate::Result {

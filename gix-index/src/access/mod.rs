@@ -3,8 +3,11 @@ use std::{cmp::Ordering, ops::Range};
 use bstr::{BStr, ByteSlice, ByteVec};
 use filetime::FileTime;
 
-use crate::entry::{Stage, StageRaw};
-use crate::{entry, extension, AccelerateLookup, Entry, PathStorage, PathStorageRef, State, Version};
+use crate::{
+    entry,
+    entry::{Stage, StageRaw},
+    extension, AccelerateLookup, Entry, PathStorage, PathStorageRef, State, Version,
+};
 
 // TODO: integrate this somehow, somewhere, depending on later usage.
 #[allow(dead_code)]
