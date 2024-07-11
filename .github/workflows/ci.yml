@@ -19,7 +19,7 @@ on:
       - '*.toml'
       - Makefile
   pull_request:
-    branches: [ main ]
+    branches: [ m** ]
     paths:
       - '.github/**'
       - 'ci/**'
