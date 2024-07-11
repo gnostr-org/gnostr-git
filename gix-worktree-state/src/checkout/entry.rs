@@ -1,5 +1,5 @@
-use std::borrow::Cow;
 use std::{
+    borrow::Cow,
     fs::OpenOptions,
     io::Write,
     path::{Path, PathBuf},
