@@ -1,0 +1,4 @@
+[submodule "gnostr-tui"]
+	path = gix-tui
+	url = https://github.com/gnostr-org/gnostr-tui.git
+	branch = gix-tui-workspace
