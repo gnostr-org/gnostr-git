@@ -1,8 +1,9 @@
 mod section {
-    use crate::parse::section::Header;
-    use crate::parse::{section, Comment, Event, Events, Section};
-    use bstr::BStr;
     use std::borrow::Cow;
+
+    use bstr::BStr;
+
+    use crate::parse::{section, section::Header, Comment, Event, Events, Section};
 
     #[test]
     #[cfg(target_pointer_width = "64")]

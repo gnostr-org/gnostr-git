@@ -1,5 +1,6 @@
-use gix_config::Source;
 use std::path::Path;
+
+use gix_config::Source;
 
 #[test]
 fn git_config_no_system() {
