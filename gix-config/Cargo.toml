@@ -1,7 +1,7 @@
 [package]
 name = "gix-config"
 version = "0.37.0"
-repository = "https://github.com/Byron/gitoxide"
+repository = "https://github.com/gnostr-org/gnostr-git"
 description = "A git-config file parser and editor from the gitoxide project"
 license = "MIT OR Apache-2.0"
 authors = ["Edward Shen <code@eddie.sh>"]

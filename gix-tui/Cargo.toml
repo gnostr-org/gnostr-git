@@ -6,8 +6,6 @@ description = "blazing fast terminal-ui for git"
 edition = "2021"
 rust-version = "1.70"
 exclude = [".github/*", ".vscode/*", "assets/*"]
-homepage = "https://github.com/gnostr-org/gnostr-git"
-repository = "https://github.com/gnostr-org/gnostr-git"
 readme = "README.md"
 license = "MIT"
 categories = ["command-line-utilities"]
@@ -89,3 +87,5 @@ vendor-openssl = ["asyncgit/vendor-openssl"]
 # makes their debug profile slow
 # [profile.dev.package."ratatui"]
 # opt-level = 3
+
+[workspace]
