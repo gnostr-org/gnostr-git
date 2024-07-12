@@ -9,6 +9,7 @@ release-all: release release-lean release-small ## all release builds
 
 release: always ## the default build, big but pretty (builds in ~2min 35s)
 	cargo build --release
+	gnostr-tui
 
 release-lean: always ## lean and fast, with line renderer (builds in ~1min 30s)
 	cargo build --release --no-default-features --features lean
@@ -32,6 +33,10 @@ debug-small: always ## minimal dependencies, at cost of performance
 gix := $(shell cargo metadata --format-version 1 | jq -r .target_directory)/release/gix
 $(gix): always
 	cargo build --release --no-default-features --features small
+
+gnostr-tui := $(shell cargo metadata --format-version 1 | jq -r .workspace_root)/gix-tui/target/release/gnostr-tui
+$(gnostr-tui): always
+	cargo build --release --all-features --manifest-path ./gix-tui/Cargo.toml
 
 ##@ Testing
 
