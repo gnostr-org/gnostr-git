@@ -1,7 +1,7 @@
 [package]
 name = "gix-worktree-stream"
 version = "0.13.0"
-repository = "https://github.com/Byron/gitoxide"
+repository = "https://github.com/gnostr-org/gnostr-git"
 license = "MIT OR Apache-2.0"
 description = "generate a byte-stream from a git-tree"
 authors = ["Sebastian Thiel <sebastian.thiel@icloud.com>"]

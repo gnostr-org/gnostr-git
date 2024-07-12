@@ -2,7 +2,7 @@
 name = "gix-index-tests"
 version = "0.0.0"
 publish = false
-repository = "https://github.com/Byron/gitoxide"
+repository = "https://github.com/gnostr-org/gnostr-git"
 license = "MIT OR Apache-2.0"
 description = "Integration tests for gix-index"
 authors = ["Sebastian Thiel <sebastian.thiel@icloud.com>"]

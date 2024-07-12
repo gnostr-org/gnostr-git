@@ -286,8 +286,6 @@ members = [
     "gix",
     "gitoxide-core",
     "gix-hashtable",
-    "gix-tui",
-    "gix-tui/asyncgit", "gix-tui/filetreelist", "gix-tui/git2-hooks", "gix-tui/git2-testing", "gix-tui/scopetime",
     "gix-tix",
     "gix-archive",
     "gix-worktree-stream",
@@ -304,6 +302,12 @@ members = [
     "gix-ref/tests",
     "gix-config/tests",
     "gix-traverse/tests",
+]
+exclude = [
+
+    #"gix-tui",
+    #"gix-tui/asyncgit", "gix-tui/filetreelist", "gix-tui/git2-hooks", "gix-tui/git2-testing", "gix-tui/scopetime",
+
 ]
 
 [workspace.dependencies]
