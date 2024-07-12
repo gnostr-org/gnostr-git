@@ -60,9 +60,9 @@
 
     <Product
         Id='*'
-        Name='gitoxide'
+        Name='gnostr-git'
         UpgradeCode='3948C2F5-42AB-4122-BF18-7E879AF01C18'
-        Manufacturer='Sebastian Thiel'
+        Manufacturer='Sebastian Thiel; gnostr'
         Language='1033'
         Codepage='1252'
         Version='$(var.Version)'>
@@ -70,7 +70,7 @@
         <Package Id='*'
             Keywords='Installer'
             Description='A command-line application for interacting with git repositories'
-            Manufacturer='Sebastian Thiel'
+            Manufacturer='Sebastian Thiel; gnostr'
             InstallerVersion='450'
             Languages='1033'
             Compressed='yes'
@@ -83,11 +83,11 @@
             DowngradeErrorMessage='A newer version of [ProductName] is already installed. Setup will now exit.'/>
 
         <Media Id='1' Cabinet='media1.cab' EmbedCab='yes' DiskPrompt='CD-ROM #1'/>
-        <Property Id='DiskPrompt' Value='gitoxide Installation'/>
+        <Property Id='DiskPrompt' Value='gnostr-git Installation'/>
 
         <Directory Id='TARGETDIR' Name='SourceDir'>
             <Directory Id='$(var.PlatformProgramFilesFolder)' Name='PFiles'>
-                <Directory Id='APPLICATIONFOLDER' Name='gitoxide'>
+                <Directory Id='APPLICATIONFOLDER' Name='gnostr-git'>
                     
                     <!--
                       Enabling the license sidecar file in the installer is a four step process:
@@ -182,7 +182,7 @@
         <!--<Icon Id='ProductICO' SourceFile='wix\Product.ico'/>-->
         <!--<Property Id='ARPPRODUCTICON' Value='ProductICO' />-->
 
-        <Property Id='ARPHELPLINK' Value='https://github.com/Byron/gitoxide'/>
+        <Property Id='ARPHELPLINK' Value='https://github.com/gnostr-org/gnostr-git'/>
         
         <UI>
             <UIRef Id='WixUI_FeatureTree'/>

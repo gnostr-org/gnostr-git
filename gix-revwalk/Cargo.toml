@@ -1,7 +1,7 @@
 [package]
 name = "gix-revwalk"
 version = "0.13.1"
-repository = "https://github.com/Byron/gitoxide"
+repository = "https://github.com/gnostr-org/gnostr-git"
 license = "MIT OR Apache-2.0"
 description = "A crate providing utilities for walking the revision graph"
 authors = ["Sebastian Thiel <sebastian.thiel@icloud.com>"]
