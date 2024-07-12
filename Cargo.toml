@@ -25,6 +25,13 @@ doc = false
 test = false
 doctest = false
 
+[[bin]]
+name = "gnostr-git"
+path = "src/gix.rs"
+doc = false
+test = false
+doctest = false
+
 [features]
 default = ["max-pure"]
 
