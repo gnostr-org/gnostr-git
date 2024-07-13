@@ -312,8 +312,12 @@ members = [
 ]
 exclude = [
 
-    #"gix-tui",
-    #"gix-tui/asyncgit", "gix-tui/filetreelist", "gix-tui/git2-hooks", "gix-tui/git2-testing", "gix-tui/scopetime",
+    "gix-tui",
+    "gix-tui/asyncgit",
+    "gix-tui/filetreelist",
+    "gix-tui/git2-hooks",
+    "gix-tui/git2-testing",
+    "gix-tui/scopetime",
 
 ]
 
