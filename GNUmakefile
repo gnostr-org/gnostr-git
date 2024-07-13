@@ -1,6 +1,7 @@
 -include Makefile
+-include cargo.mk
 
-cargo-dist-build:
+cargo-dist-build-tag:
 	cargo dist build \
 	--artifacts=global \
 	--tag=$(shell git for-each-ref refs/tags --sort=-taggerdate --format="%(refname:short)" \
