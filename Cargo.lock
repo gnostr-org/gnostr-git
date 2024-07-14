@@ -3881,7 +3881,7 @@ dependencies = [
 
 [[package]]
 name = "gnostr-git"
-version = "0.0.7"
+version = "0.0.8"
 dependencies = [
  "anyhow",
  "clap 4.4.12",
@@ -3906,7 +3906,7 @@ dependencies = [
 
 [[package]]
 name = "gnostr-tui"
-version = "0.0.7"
+version = "0.0.8"
 dependencies = [
  "anyhow",
  "asyncgit",
