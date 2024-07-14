@@ -1,0 +1,6 @@
+[toolchain]
+# The default profile includes rustc, rust-std, cargo, rust-docs, rustfmt and clippy.
+## rustup default 1.67.1-x86_64-apple-darwin
+# https://rust-lang.github.io/rustup/concepts/profiles.html
+profile = "default"
+channel = "1.67"
