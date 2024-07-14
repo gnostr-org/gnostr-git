@@ -88,4 +88,4 @@ vendor-openssl = ["asyncgit/vendor-openssl"]
 # [profile.dev.package."ratatui"]
 # opt-level = 3
 
-[workspace]
+# [workspace]
