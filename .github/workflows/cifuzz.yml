@@ -8,12 +8,12 @@ jobs:
      id: build
      uses: google/oss-fuzz/infra/cifuzz/actions/build_fuzzers@master
      with:
-       oss-fuzz-project-name: 'gitoxide'
+       oss-fuzz-project-name: 'gnostr-git'
        language: rust
    - name: Run Fuzzers
      uses: google/oss-fuzz/infra/cifuzz/actions/run_fuzzers@master
      with:
-       oss-fuzz-project-name: 'gitoxide'
+       oss-fuzz-project-name: 'gnostr-git'
        language: rust
        fuzz-seconds: 600
    - name: Upload Crash
