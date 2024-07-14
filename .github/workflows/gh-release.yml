@@ -188,6 +188,9 @@ jobs:
       - name: Build release binary
         run: ${{ env.CARGO }} build --verbose --release ${{ env.TARGET_FLAGS }} --no-default-features --features ${{ matrix.feature }}
 
+      - name: Build release gnostr-git
+        run: ${{ env.CARGO }} build --verbose --release ${{ env.TARGET_FLAGS }} --no-default-features --features ${{ matrix.feature }} --bin gnostr-git
+
       - name: Strip release binary (linux and macos)
         if: matrix.build == 'linux' || matrix.build == 'macos'
         run: strip target/${{ matrix.target }}/release/${{ env.EXE_NAME }} target/${{ matrix.target }}/release/gix
