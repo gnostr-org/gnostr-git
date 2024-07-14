@@ -2041,26 +2041,6 @@ dependencies = [
 
 [[package]]
 name = "gix-odb"
-version = "0.57.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8ba2fa9e81f2461b78b4d81a807867667326c84cdab48e0aed7b73a593aa1be4"
-dependencies = [
- "arc-swap",
- "gix-date 0.8.6",
- "gix-features 0.38.2 (registry+https://github.com/rust-lang/crates.io-index)",
- "gix-fs 0.10.2",
- "gix-hash 0.14.2 (registry+https://github.com/rust-lang/crates.io-index)",
- "gix-object 0.41.0",
- "gix-pack 0.47.0",
- "gix-path 0.10.7",
- "gix-quote 0.4.12 (registry+https://github.com/rust-lang/crates.io-index)",
- "parking_lot",
- "tempfile",
- "thiserror",
-]
-
-[[package]]
-name = "gix-odb"
 version = "0.61.0"
 dependencies = [
  "arc-swap",
