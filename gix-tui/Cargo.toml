@@ -54,6 +54,12 @@ which = "4.4"
 [package.metadata.cargo-udeps.ignore]
 normal = ["cargo-audit"]
 development = ["cargo-audit"]
+
+[package.metadata.wix]
+upgrade-guid = "67A9D9BD-A115-4C91-BC98-6C99093DF160"
+path-guid = "702C3547-EE01-4175-B91F-DA086DF9BDEC"
+license = false
+eula = false
 #build = []
 
 [dev-dependencies]
