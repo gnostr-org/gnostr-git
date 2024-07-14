@@ -22,7 +22,7 @@ on:
   push:
     # Enable when testing release infrastructure on a branch.
     branches:
-      - **fix-releases**
+      - fix-releases
     tags:
       - "v.*"
       - *fix-releases**
