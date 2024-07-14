@@ -21,10 +21,11 @@ on:
   workflow_dispatch:
   push:
     # Enable when testing release infrastructure on a branch.
-    # branches:
-     #  - fix-releases
+    branches:
+      - fix-releases
     tags:
       - "v.*"
+      - fix-releases
 jobs:
   create-release:
     name: create-release
@@ -113,6 +114,12 @@ jobs:
         # even though we could also build with `--features max-control,http-client-reqwest,gitoxide-core-blocking-client,gix-features/fast-sha1` for fast hashing.
         # It's a TODO.
         exclude:
+          - build: macos
+            feature: max
+          - build: macos
+            feature: small
+          - build: macos
+            feature: lean
           - build: linux
             feature: small
           - build: linux
@@ -131,7 +138,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 1
+          fetch-depth: 0
+          submodules: true
 
       - name: Install packages (Ubuntu)
         # Because openssl doesn't work on musl by default, we resort to max-pure. And that won't need any dependency, so we can skip this.continue-on-error
@@ -149,6 +157,7 @@ jobs:
       - name: Use Cross
         # if: matrix.os != 'windows-latest'
         run: |
+          rustup target add x86_64-apple-darwin
           cargo install cross
           echo "CARGO=cross" >> $GITHUB_ENV
           echo "TARGET_FLAGS=--target ${{ matrix.target }}" >> $GITHUB_ENV
