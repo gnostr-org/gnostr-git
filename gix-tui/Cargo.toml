@@ -1,10 +1,10 @@
 [package]
 name = "gnostr-tui"
-version = "0.0.5"
+version = "0.0.6"
 authors = ["gnostr <admin@gnostr.org>", "extrawurst <mail@rusticorn.com>"]
 description = "blazing fast terminal-ui for git"
 edition = "2021"
-rust-version = "1.70"
+rust-version = "1.74.1"
 exclude = [".github/*", ".vscode/*", "assets/*"]
 readme = "README.md"
 license = "MIT"
