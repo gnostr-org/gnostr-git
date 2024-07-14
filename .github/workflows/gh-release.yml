@@ -114,12 +114,12 @@ jobs:
         # even though we could also build with `--features max-control,http-client-reqwest,gitoxide-core-blocking-client,gix-features/fast-sha1` for fast hashing.
         # It's a TODO.
         exclude:
-          - build: macos
-            feature: max
-          - build: macos
-            feature: small
-          - build: macos
-            feature: lean
+          #- build: macos
+          #  feature: max
+          #- build: macos
+          #  feature: small
+          #- build: macos
+          #  feature: lean
           - build: linux
             feature: small
           - build: linux
