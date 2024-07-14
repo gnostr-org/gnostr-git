@@ -27,7 +27,7 @@ doctest = false
 
 [[bin]]
 name = "gnostr-git"
-path = "src/gix.rs"
+path = "src/bin/gnostr-git.rs"
 doc = false
 test = false
 doctest = false
@@ -304,8 +304,8 @@ members = [
     "gix-worktree-stream",
     "gix-worktree/tests",
     "tests/tools",
-]
-exclude = [
+#]
+#exclude = [
 
     "gix-tui",
     "gix-tui/asyncgit",
