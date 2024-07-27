@@ -8,6 +8,7 @@ curl:
 ##@ Release Builds
 
 release-all: release release-lean release-small ## all release builds
+	$(MAKE) cargo-i
 
 release: curl always ## the default build, big but pretty (builds in ~2min 35s)
 	cargo build --release
