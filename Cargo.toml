@@ -24,6 +24,20 @@ doc = false
 test = false
 doctest = false
 
+[[bin]]
+name = "gnostr-ein"
+path = "src/ein.rs"
+doc = false
+test = false
+doctest = false
+
+[[bin]]
+name = "gnostr-git"
+path = "src/gix.rs"
+doc = false
+test = false
+doctest = false
+
 [features]
 default = ["max"]
 
