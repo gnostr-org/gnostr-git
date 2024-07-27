@@ -3,11 +3,13 @@ help:  ## Display this help
 
 always:
 
+curl:
+	pushd ../ext/curl-8.5.0 && make install && popd
 ##@ Release Builds
 
 release-all: release release-lean release-small ## all release builds
 
-release: always ## the default build, big but pretty (builds in ~2min 35s)
+release: curl always ## the default build, big but pretty (builds in ~2min 35s)
 	cargo build --release
 
 release-lean: always ## lean and fast, with line renderer (builds in ~1min 30s)
